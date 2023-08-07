@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/join.css' %}">
+</head>
+<body>
+
+    <form action="" id="signup-form" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container">
+            <div class="circle">
+                <div class="content">
+                    <img src="{% static 'images/NoonDDock.jpg' %}" class="logo">
+                        <p class="title">로그인 | 회원가입</p>
+                        <div class="text">
+                        <div class="input">
+                        <div class="input-field1">
+                            <label for="user-name">이름</label>
+                            <!-- <input type="text" id="user-name" name="NAME" placeholder=""> -->
+                            {{ form.username }}
+                        </div>
+                        <p class="possible">*150자 이하 문자, 숫자, @/./+/-/_ 만 가능합니다.</p>
+                        <div class="input-field2">
+                            <label for="user-email">이메일</label>
+                            <!-- <input type="text" id="user-email" name="EM" placeholder=""> -->
+                            {{ form.email }}
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>        
+            <div class="rectangle">
+                <div class="text2">
+
+                    <div class="input2">
+                    <div class="input-field3">
+                        <label for="user-pw">비밀번호</label>
+                        <!-- <input type="text" id="user-pw" name="PW" placeholder=""> -->
+                        {{ form.password1 }}
+                    </div>
+                    <div class="limit">
+                    <p class="numlimit">*최소 8자 이상</p>
+                    <p class="pwlimit">*숫자로만 이루어진 비밀번호는 사용할 수 없습니다.(영어+숫자, 영어+부호 영어만 가능)</p>
+                </div>
+                    <div class="input-field4">
+                        <label for="user-pwconfirm">비밀번호 확인</label>
+                        <!-- <input type="text" id="user-pwconfirm" name="PW-CF" placeholder=""> -->
+                        {{ form.password2 }}
+                    </div>
+                </div>
+
+                <div class="memberbutton">
+                    <label for="user-member">회원선택</label>
+                    <div class="membership">
+                        <input type="radio" id="senior" name="membership" value="senior" class="hidden-radio">
+                        <label for="senior" class="senior-button">시니어 회원</label>
+                        <input type="radio" id="child" name="membership" value="child" class="hidden-radio">
+                        <label for="child" class="child-button">자녀 회원</label>
+                    </div>
+                </div>
+            
+                <button type="submit" id="login-button" name="Login">회원가입</button>
+            </div>
+            </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footercontainer">
+                <div class="container1">
+                <div class="inform1">
+                    <span>이용약관&nbsp;</span>
+                    <span>&nbsp;개인정보처리방침</span>
+                </div>
+                <div class="inform2">
+                    <span>상호명: 눈똑&nbsp;&nbsp;</span>
+                </div>
+                <div  class="copy"><span>Copyright © 한성대학교 멋쟁이사자처럼 11기 All rights reserved.</span></div>
+            </div>
+
+            <div class="container2">
+                <span  class="inform5">
+                    <br><br><br><br>
+                    PM: 김지은<br>
+                    DE: 임채현<br>
+                    BE: 박태범, 최용석<br>
+                    FE: 이나경, 이수아</span>
+            </div>
+        </div>
+            
+                
+        </footer>
+    </form>
+</body>
+</html>

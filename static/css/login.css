@@ -1,0 +1,204 @@
+@import url('https://webfontworld.github.io/sunn/SUIT.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 980px;
+    width: 1920px;
+    background-color: #272727;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.container {
+    width: 100%;
+    height: calc(100% - 250px); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+.circle {
+    width: 900px;
+    height: 450px; 
+    border-top-left-radius: 900px;
+    border-top-right-radius: 900px;
+    background: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    height: 70%; 
+    align-items: center;
+    margin-top:120px;
+}
+
+.text{
+    text-align: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.text2{
+    text-align:center;
+    align-items: center;
+    
+}
+
+
+.title{
+    margin-top:20px;
+    color: #000;
+    font-family: SUIT;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.rectangle{
+    width: 900px;
+    height: 245px;
+    flex-shrink: 0;
+    background: #FFF;
+}
+
+.logo{
+    width: 164px;
+height: 162px;
+flex-shrink: 0;
+}
+
+#user-id{
+    padding-left: 10px;
+    margin-top:36px;
+    width: 600px;
+height: 44px;
+flex-shrink: 0;
+border: 1px solid rgba(0, 0, 0, 0.30);
+background: #FFF;
+}
+
+#user-id::placeholder{
+    color: #000;
+font-family: SUIT;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+#user-pw::placeholder{
+    color: #000;
+font-family: SUIT;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+width: 182px;
+height: 19.067px;
+flex-shrink: 0;
+
+}
+
+#user-pw{
+    padding-left: 10px;
+    margin-top:26px;
+    width: 600px;
+height: 44px;
+flex-shrink: 0;
+border: 1px solid rgba(0, 0, 0, 0.30);
+background: #FFF;
+}
+
+.find{
+    margin-top:16px;
+    color: #515151;
+font-family: SUIT;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.text2>button[type="submit"]{
+    width: 600px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 71px;
+background: #000;
+margin-top:34px;
+}
+
+#login-button{
+    color: #FFF;
+font-family: SUIT;
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+#login-button:hover{
+    cursor:pointer;
+}
+
+/* footer */
+footer {
+    width: 100%;
+    height: 200px;
+    background-color: #F4F4F4;
+}
+
+.footercontainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 240px;
+}
+
+.container1,
+.container2 {
+    width: 50%; 
+    display: flex;
+    flex-direction: column; 
+}
+
+.container1 {
+    text-align: left;
+    margin-top:45px;
+}
+
+.container2 {
+    text-align: right;
+}
+
+.inform1 {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 12px;
+}
+
+.inform2 {
+    margin-bottom: 12px;
+}
+
+.inform5 {
+    text-align: right; 
+    margin-top: -60px; 
+    line-height:1.5;
+}

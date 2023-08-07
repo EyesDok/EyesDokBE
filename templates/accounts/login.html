@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="circle">
+            <div class="content">
+                <img src="{% static 'images/NoonDDock.jpg' %}" class="logo">
+                <div class="text">
+                    <p class="title">로그인 | 회원가입</p>
+                    <input type="text" id="user-id" name="ID" placeholder="아이디를 입력해주세요.">
+                </div>
+            </div>
+        </div>        
+        <div class="rectangle">
+            <div class="text2">
+            <input type="text" id="user-pw" name="PW" placeholder="비밀번호를 입력해주세요.">
+            <p class="find">아이디 찾기 | 비밀번호 찾기</p>
+            <button type="submit" id="login-button" name="Login">로그인하기</button>
+        </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footercontainer">
+            <div class="container1">
+            <div class="inform1">
+                <span>이용약관&nbsp;</span>
+                <span>&nbsp;개인정보처리방침</span>
+            </div>
+            <div class="inform2">
+                <span>상호명: 눈똑&nbsp;&nbsp;</span>
+            </div>
+            <div  class="copy"><span>Copyright © 한성대학교 멋쟁이사자처럼 11기 All rights reserved.</span></div>
+        </div>
+
+        <div class="container2">
+            <span  class="inform5">
+                <br><br><br><br>
+                PM: 김지은<br>
+                DE: 임채현<br>
+                BE: 박태범, 최용석<br>
+                FE: 이나경, 이수아</span>
+        </div>
+    </div>
+        
+            
+    </footer>
+    
+</body>
+</html>
