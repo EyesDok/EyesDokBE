@@ -1,75 +1,22 @@
 from django.shortcuts import render, redirect
-# from .forms import UserCreateForm
-from django.contrib.auth.forms import UserCreationForm
-from .forms import SignUpForm, CustomAuthForm
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, logout
-from django.http import JsonResponse
+from .models import CustomUser
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
-# Create your views here.
 
 def signup_view(request):
-    # Get 요청 시 HTML 응답
-    if request.method == 'GET':
-        form = SignUpForm
-        context = {'form' : form }
-        return render(request, 'accounts/signup.html', context)
-    else:
-        
-        form = SignUpForm(request.POST)
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
+        # Get the value of senior_member from the form data
+        membership = request.POST.get('membership') == 'true'
 
-        if form.is_valid():
-            #회원가입 처리
-            instance = form.save()
-            return redirect('accounts:login')
-        else:
-            #리다이렉트
-            return redirect('accounts:signup')
+        # Create the user in the database
+        user = CustomUser.objects.create_user(username=username, email=email, password=password1, membership=membership)
+        user.save()
 
-def login_view(request):
-    
-    if request.method == 'GET':
-        # 로그인 HTML 응답
-        return render(request, 'accounts/login.html', { 'form' : CustomAuthForm() })
-    else:
-        # 데이터 유효성 검사
-        form = CustomAuthForm(request, request.POST)
-        if form.is_valid():
-            # 비즈니스 로직 처리 - 로그인 처리
-            login(request, form.user_cache)
-            # 응답
-            return redirect('index')
-        else:
-            # 비즈니스 로직 처리 - 로그인 실패
-            # 응답
-            return render(request, 'accounts/login.html', {'form':form})
-        
-            # username = request.POST.get('username')
-            # if username == '' or username == None:
-            #     pass
-            # user = User.objects.get(username=username)
-            # if user == None:
-            #     pass
-
-        
-def logout_view(request):
-    # 데이터 유효성 검사
-    if request.user.is_authenticated:
-        # 비즈니스 로직 처리 - 로그아웃
-        logout(request)
-    # 응답
-    return redirect('index')
-
-
-def check_username_view(request):
-    if request.method == 'GET':
-        username = request.GET.get('username')
-
-        # 아이디 중복 확인 로직을 구현
-        is_taken = User.objects.filter(username=username).exists()
-        print(is_taken)
-        return JsonResponse({'is_taken': is_taken})
-    else:
-        return JsonResponse({'error': '잘못된 요청입니다.'})
+        # Redirect to a success page after successful registration
+        return redirect('accounts:signup')
+    return render(request, 'accounts/signup.html')
