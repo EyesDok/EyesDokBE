@@ -11,12 +11,14 @@ def signup_view(request):
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
         # Get the value of senior_member from the form data
-        membership = request.POST.get('membership') == 'true'
+        membership = request.POST.get('membership')
 
         # Create the user in the database
         user = CustomUser.objects.create_user(username=username, email=email, password=password1, membership=membership)
         user.save()
 
         # Redirect to a success page after successful registration
-        return redirect('accounts:signup')
+        return redirect('accounts:login')
     return render(request, 'accounts/signup.html')
+
+
