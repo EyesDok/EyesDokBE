@@ -14,13 +14,15 @@
                 <img src="{% static 'images/NoonDDock.jpg' %}" class="logo">
                 <div class="text">
                     <p class="title">로그인 | 회원가입</p>
-                    <input type="text" id="user-id" name="ID" placeholder="아이디를 입력해주세요.">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                    <input type="text" id="user-id" name="username" placeholder="아이디를 입력해주세요.">
                 </div>
             </div>
         </div>        
         <div class="rectangle">
             <div class="text2">
-            <input type="text" id="user-pw" name="PW" placeholder="비밀번호를 입력해주세요.">
+            <input type="text" id="user-pw" name="password" placeholder="비밀번호를 입력해주세요.">
             <p class="find">아이디 찾기 | 비밀번호 찾기</p>
             <button type="submit" id="login-button" name="Login">로그인하기</button>
         </div>
