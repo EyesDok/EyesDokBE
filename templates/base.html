@@ -22,10 +22,19 @@
         <div class="navContainer2">
             <div style="font-size: 12px; margin-right: 10px;">
             </div>
+            {% if request.user.is_authenticated %}
+            <div style="font-size: 12px; margin-right: 10px;">
+                {% if user.first_name %}
+                {{ user.first_name }}님 환영합니다.
+                {% else %}
+                {{ user.username }}님 환영합니다.
+                {% endif %}
+            </div>
             <a href="{% url 'accounts:logout' %}">로그아웃 </a>
+            {% else %}
             <div class="login"><a href="{% url 'accounts:login' %}" class="green">로그인 |</a></div>
             <div class="join"><a href="{% url 'accounts:signup' %}" class="green">회원가입</a></div>
-
+            {% endif %}
         </div>
     </nav>
     <div>
