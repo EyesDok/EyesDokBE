@@ -1,0 +1,546 @@
+@import url('https://webfontworld.github.io/sunn/SUIT.css');
+
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+
+
+/*header+nav*/
+
+#family {
+  position: relative;
+}
+
+#family.underline a {
+  position: relative;
+}
+
+#family.underline a::after {
+  content: '';
+  position: absolute;
+  bottom: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 145px;
+  height: 6.041px;
+  flex-shrink: 0;
+  background-color: #00FF00;
+}
+
+
+a:link {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #fff;
+  text-decoration: none;}
+
+a:hover{
+  color: #fff;
+  text-decoration: none;
+}
+
+a{
+  text-decoration:none;
+}
+
+.container{
+  display:block;
+}
+/*nav*/
+
+nav {
+  display: flex;
+  height: 119px;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 100vw;
+  background: #000;
+}
+
+nav div{
+  flex-grow: 0.3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #fff;
+  font-size: 20px;
+  font-family: SUIT;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.navContainer1 > div{
+  flex-grow: 0.3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left:115px;
+}
+
+.navContainer1{
+
+  margin: 0 auto;
+  max-width: 100rem;
+  justify-content: center;
+  gap:20px;
+}
+
+.navContainer2{
+  margin: 0 auto;
+  max-width: 100rem;
+}
+
+.navContainer2 .login {
+  margin-left: 60px;
+}
+
+.navContainer2 .join {
+  margin-right: 60px;
+}
+
+.navContainer2 > div {
+  flex-grow: 0.03;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+#NoonDDock,#family,#my{
+  color: #FFF;
+  font-family: SUIT;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.login,.join{
+  color: #FFF;
+  font-family: SUIT;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-text {
+  font-size: 1rem;
+  color: white;
+}
+
+.titlecon{
+  justify-content: center;
+  text-align:center;
+  align-items: center;
+  display:flex;
+}
+
+
+.maintitle{
+  margin-top: 8vh;
+  width:50vw;
+  height:2.5vh;
+  color: #000;
+  font-family: SUIT;
+  font-size: 2.5em;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+
+
+/*banner*/
+
+#sec1 {
+    display: flex;
+    justify-content: space-between; /* 오른쪽에 이미지를 배치하기 위해 */
+    align-items: stretch; /* sec1의 높이를 이미지 높이로 늘림 */
+    background: #EFEEEC;
+}
+
+.cWidth {
+    display: flex;
+    justify-content: flex-end; /* 이미지를 오른쪽에 배치 */
+    align-items: center; /* 이미지를 세로 중앙에 배치 */
+    flex-grow: 1; /* cWidth가 가능한 만큼 공간을 차지하도록 설정 */
+}
+
+.cWidth img {
+    width: 80vw;
+    height: auto;
+    margin: 0; /* margin 제거 */
+}
+
+
+#divBanner{
+    position: relative;
+    z-index:1;
+}
+#divBanner > p{
+    position:absolute;
+    left:17vw;
+    top:11vh;
+    color: #000;
+font-family: SUIT;
+font-size: 2.5vw;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+flex-shrink: 0;
+}
+
+.kakaotalk{
+position:absolute; 
+left:1vw; 
+bottom:w; 
+width:4vw;
+color: #000;
+font-family: SUIT;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+width: 140.707px;
+}
+
+
+.share-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* 이미지와 텍스트 간의 간격을 조절 */
+    margin-top: 10px;
+}
+
+.share-icon {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 아이콘과 텍스트 간의 간격 */
+}
+
+.share-icon img {
+    width: 30px; /* 아이콘 크기 조절 */
+    height: auto;
+}
+
+/*chat*/
+
+ /*chat*/
+
+ .sec1{
+    width:100vw;
+      margin:auto;
+
+}
+#comment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* 수직 중앙 정렬 (선택사항) */
+}
+
+.make {
+    display: flex;
+    align-items: center; 
+    
+    color: #000;
+font-family: Noto Sans;
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+#comment-write #square {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#star {
+    display: flex;
+    align-items: center; 
+    margin-right:2vh;
+    gap:1vh;
+}
+.make img{
+    width: 19.999px;
+height: 20px;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto; /* 가운데 정렬 */
+  overflow: hidden; /* 내부 요소가 넘치지 않도록 설정 */
+}
+
+  .chat {
+    width: 62vw;
+    margin-top: 10vh;
+    margin-bottom:10vh;
+    margin-left:17vw;
+    justify-content: center;
+    text-align: left; /* 내부 요소 가운데 정렬 */
+    overflow: hidden;
+    align-items: center;
+}
+#square{
+    width: 62vw;
+height: 13vh;
+flex-shrink: 0;
+border-radius: 3px;
+background: #F4F4F4;
+align-items: center;
+text-align:center;
+flex-direction: center;
+display:flex;
+}
+
+.squarename{
+    margin-left:2vh;
+    color: #000;
+font-family: SUIT;
+font-size: 1.2rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+  .gallery::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -70px; 
+    left: 0;
+    right: 0;
+    height: 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0));
+  }
+  
+  #comment{
+    margin-top:5vh;
+    font-size: 3rem;
+    color: #000;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+    color: #000;
+font-family: SUIT;
+font-size: 2vw;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+  }
+  
+  #comment-write{
+    width: 61.5vw;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-top: 5vh;
+    align-items: center;
+    margin-bottom: 3vh;
+  }
+
+  #comment-write1{
+    width: 61.5vw;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-top: 0vh;
+    align-items: center;
+    margin-bottom: -6vh;
+  }
+  
+  #cuser1{
+    width: 72px;
+height: 72px;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+  }
+  #comment-write > textarea{
+    flex-grow: 1;
+    margin-left: 2vw;
+    height: 12vh;
+    outline: none;
+    border: none;
+    resize: none;
+    border-radius: 12px;
+    background: #FFF;
+    box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.10);
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding: 2vh 2vw 2vh 2vw;
+  }
+
+  #cbtn1{
+    display: flex;
+    display: flex;
+    padding: 6px 10px;
+    position: absolute;
+    right: 2vh;
+    bottom: 2vh;
+    color: white;
+    border-radius: 5vh;
+    background: #000;
+    
+    text-align: center;
+    cursor: pointer;
+  }
+  #cbtn1:hover{
+    background: #00091f;
+  }
+  
+  #comment-box{
+    width: 55vw;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-top: 4vh;
+    margin-bottom: 6vh;
+  }
+  #comment-box #cuser{
+    width: 40px;
+    height: 40px;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+  }
+  #comment-box > div{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2vw;
+  }
+  #comment-box #divWriter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  #creator1{
+    font-size: 1.6rem;
+    color: #000;
+    font-weight: 500;
+  }
+  
+  #date1{
+    color: #7E7E7E;
+    font-size: 1rem;
+    padding-left: 1.5vh;
+    font-weight: 400;
+  }
+  #ctext2{
+    flex-grow: 1;
+    height: 10vh;
+    font-size: 1.3rem;
+    background: #FFF;
+    color: #7E7E7E;
+    font-size: 1.3rem;
+    padding: 2vh 2vw 2vh 2vw;
+    margin-top: 5vh;
+  }
+
+  #text-container{
+    margin-top:-0.5vh;
+  }
+
+  #text-container1{
+    margin-top:3vh;
+  }
+  
+  #buttons-container {
+    margin: 10vh 6vh 0 6vh;
+    display: flex;
+    width: 100%;
+    margin-left:12vh;
+    gap:4%;
+}
+
+.custom-button1 {
+    width:25vw;
+    height: 9vh;
+    background: #00A507;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FEE;
+font-family: SUIT;
+font-size: 28px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+
+
+
+
+/* footer */
+footer {
+  margin-top:300px;
+  width: 100vw;
+  height: 200px;
+  background-color: #F4F4F4;
+  box-sizing: border-box;
+}
+
+.footercontainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 5vw;
+}
+
+.container1,
+.container2 {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container1 {
+  text-align: left;
+  margin-top: 40px;
+}
+
+.container2 {
+  text-align: right;
+}
+
+.inform1 {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 12px;
+}
+
+.inform2 {
+  margin-bottom: 12px;
+}
+
+.inform5 {
+  text-align: right;
+  margin-top: -60px;
+  line-height: 1.5;
+}
