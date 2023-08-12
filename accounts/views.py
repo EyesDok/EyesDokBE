@@ -38,7 +38,7 @@ def login_view(request):
             # 세션 설정 및 로그인
             login(request, user)
             # 로그인 후 메인페이지로 이동
-            return redirect('main')
+            return redirect('accounts:signup')
 
         # 인증이 실패한 경우
         else:
