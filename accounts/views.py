@@ -54,4 +54,4 @@ from django.contrib.auth import logout
 
 def logout_view(request):
     logout(request)
-    return redirect('main')  # 로그아웃 후 리다이렉트할 URL 설정 (여기서는 홈 페이지로 이동)
+    return redirect('family:myFamily')  # 메인페이지로 수정 필요
