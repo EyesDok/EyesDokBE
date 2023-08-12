@@ -4,30 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>눈똑들이다</title>
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <body>
-    <div class="container">
-        <div class="circle">
-            <div class="content">
-                <img src="{% static 'images/NoonDDock.jpg' %}" class="logo">
-                <div class="text">
-                    <p class="title">로그인 | 회원가입</p>
-                    <form action="" method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                    <input type="text" id="user-id" name="username" placeholder="아이디를 입력해주세요.">
-                </div>
-            </div>
-        </div>        
-        <div class="rectangle">
-            <div class="text2">
-            <input type="text" id="user-pw" name="password" placeholder="비밀번호를 입력해주세요.">
-            <p class="find">아이디 찾기 | 비밀번호 찾기</p>
-            <button type="submit" id="login-button" name="Login">로그인하기</button>
-        </div>
-        </div>
-    </div>
+    <section class="container forms">
+        <div class="form login">
+            <div class="form-content">
+                <img src="{% static 'images/NoonDDock.jpg' %}">
+                <header> <a href="{% url 'accounts:login' %}">로그인</a> | <a href="{% url 'accounts:signup' %}"><span>회원가입</span></a></header>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="field input-field">
+                        <input type="text" placeholder="아이디를 입력해주세요." class="input" name="username">
+                    </div>
+
+                    <div class="field input-field">
+                        <input type="password" placeholder="비밀번호를 입력해주세요." class="password" name="password">
+                        <i class='bx bx-hide eye-icon'></i>
+                    </div>
+
+                    <div class="form-link">
+                        <a href="#" class="forgot-pass">아이디 찾기 | 비밀번호 찾기</a>
+                    </div>
+
+                    <div class="field button-field">
+                        <button type="submit">로그인하기</button>
+                    </div>
+                </form>
+
+               
+
+    </section>
 
     <footer>
         <div class="footercontainer">
@@ -51,9 +59,7 @@
                 FE: 이나경, 이수아</span>
         </div>
     </div>
-        
-            
     </footer>
-    
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
