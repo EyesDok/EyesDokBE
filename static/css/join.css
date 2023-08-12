@@ -7,384 +7,411 @@
 }
 
 body {
-    height: 980px;
-    width: 1920px;
-    background-color: #272727;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
+    
+    background-image: url("bkg1.png");
+    margin-top:25vw;
+    padding: 0;
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  header span{
+    color: #00A507;
+
+   
+  }
+
+  .container.forms header a:hover {
+    text-decoration: none;
+}
+  
+  header a {
+    color: #000; /* 원하는 색상으로 변경. 예: 검은색으로 변경 */
+    text-decoration: none;
 }
 
+header a:visited {
+  text-decoration: none; /* 밑줄 제거 */
+    color: #000000; /* 마우스를 올렸을 때의 색상. 예: 빨간색으로 변경 */
+}
 
-.container {
+header a:hover {
+  text-decoration: none; /* 밑줄 제거 */
+    color: #000000; /* 마우스를 올렸을 때의 색상. 예: 빨간색으로 변경 */
+}
+  .container{
+    height: 90vh;
     width: 100%;
-    height: calc(100% - 250px); 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 100px;
-    
-}
-
-.text{
-    margin-left:-40px;
-}
-.text2{
-    margin-left:-40px;
-}
-
-.circle {
-    width: 900px;
-    height: 450px; 
-    border-top-left-radius: 900px;
-    border-top-right-radius: 900px;
-    background: #FFF;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    height: 70%; 
-    align-items: center;
-    margin-top:120px;
-    margin-bottom:150px;
-}
-
-.text{
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-}
-
-.text2{
     text-align:center;
-    align-items: center;
-    justify-content: center;
-    
+    column-gap: 30px;
 }
 
 
-.title{
-    margin-top:20px;
-    color: #000;
-    font-family: SUIT;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+.form{
+  justify-content: center;
+    text-align:center;
+    align-items:center;
+    max-width: 55vw;
+    width: 100%;
+    padding: 1.5vw;
+    margin-top:-40vh;
 }
-
-.rectangle{
-    width: 900px;
-    height: 450px;
-    flex-shrink: 0;
-    background: #FFF;
+.form.signup{
+    opacity: 0;
+    pointer-events: none;
 }
-
-.logo{
-    width: 164px;
-height: 162px;
-flex-shrink: 0;
+.forms.show-signup .form.signup{
+    opacity: 1;
+    pointer-events: auto;
 }
-
-#user-name{
-    padding-left: 10px;
-    margin-top:20px;
-    width: 600px;
-height: 44px;
-flex-shrink: 0;
-border: 1px solid rgba(0, 0, 0, 0.30);
-background: #FFF;
+.forms.show-signup .form.login{
+    opacity: 0;
+    pointer-events: none;
 }
-
-#user-email{
-    padding-left: 10px;
-    margin-top:5px;
-    width: 600px;
-height: 44px;
-flex-shrink: 0;
-border: 1px solid rgba(0, 0, 0, 0.30);
-background: #FFF;
-}
-
-#user-pw{
-    width: 600px;
-    height: 44px;
-    flex-shrink: 0;
-border: 1px solid rgba(0, 0, 0, 0.50);
-background: #FFF;
-}
-
-#user-pwconfirm{
-    width: 600px;
-    height: 44px;
-    flex-shrink: 0;
-    margin-top:-11px;
-border: 1px solid rgba(0, 0, 0, 0.50);
-background: #FFF;
-}
-
-
-.limit{
-    text-align:left;
-    margin-left:187px;
-    margin-top:10px;
-}
-
-.numlimit{
-    color: #484848;
+header{
+  margin-top:2vh;
+  color: #000;
 font-family: SUIT;
-font-size: 12px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-}
-
-.pwlimit{
-    color: #484848;
-font-family: SUIT;
-font-size: 12px;
-font-style: normal;
-font-weight: 400;
-margin-top:3px;
-line-height: normal;
-}
-
-.find{
-    margin-top:16px;
-    color: #515151;
-font-family: SUIT;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-}
-
-.text2>button[type="submit"]{
-    width: 600px;
-    height: 60px;
-    flex-shrink: 0;
-    border-radius: 71px;
-background: #000;
-margin-top:34px;
-margin-left:40px;
-}
-
-#login-button{
-    color: #FFF;
-font-family: SUIT;
-font-size: 18px;
+font-size: 2vw;
 font-style: normal;
 font-weight: 600;
 line-height: normal;
 }
-
-#login-button:hover{
-    cursor:pointer;
-}
-
-.input{
-    text-align:center;
-    align-items:center;
-    margin-right:46px;
-}
-
-
-.input-field1{
-    display: flex; /* 수평 배치 */
-    justify-content: center; /* 가운데 정렬 (수평 방향) */
-    align-items: center; /* 가운데 정렬 (수직 방향) */
-    margin-top: 15px; /* 위 여백 추가 */
-    margin-left:18px;
-}
-
-.input-field2{
-    display: flex; /* 수평 배치 */
-    justify-content: center; /* 가운데 정렬 (수평 방향) */
-    align-items: center; /* 가운데 정렬 (수직 방향) */
-    margin-top: 15px; /* 위 여백 추가 */
-    margin-left: 3px;
-}
-
-.input-field3 {
-    display: flex; /* 수평 배치 */
-    justify-content: center; /* 가운데 정렬 (수평 방향) */
-    align-items: center; /* 가운데 정렬 (수직 방향) */
-    margin-top: 15px; /* 위 여백 추가 */
-    padding-top:16px;
-}
-
-.input-field4 {
-    display: flex; /* 수평 배치 */
-    justify-content: center; /* 가운데 정렬 (수평 방향) */
-    align-items: center; /* 가운데 정렬 (수직 방향) */
-    margin-top: 15px; /* 위 여백 추가 */
-    margin-right:34px;
-}
-
-.hidden-radio {
-    display: none; /* 라디오 버튼 숨기기 */
-}
-
-.senior-button {
+.field {
     display: flex;
-    width: 280px;
+    align-items: center; /* 수직 중앙 정렬 */
+    margin-bottom: 15px;
+    width: 100%; /* 필요하다면 너비를 지정 */
+}
+
+label {
+    width: 130px; /* 라벨의 너비를 고정하거나 원하는 크기로 조절하세요 */
+    text-align: right; /* 오른쪽 정렬 */
+    margin-right: 10px; /* 라벨과 인풋 사이의 간격 */
+}
+
+input {
+    flex-grow: 1; /* 입력 필드가 남은 공간을 차지 */
+}
+
+.member-choice-container {
+    display: flex;
+    gap: 10px;
+}
+
+.choice-radio {
+    display: none; /* 기본 라디오 버튼 숨기기 */
+}
+
+.choice-label {
+    display: flex;
+    width: 15vw;
+    font-family: SUIT;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
     height: 44px;
+    padding: 12px 16px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc; /* 선택되지 않은 상태의 테두리 (필요한 경우 변경) */
+    cursor: pointer; /* 라벨이 선택 가능하다는 것을 사용자에게 알리기 위한 커서 스타일 */
+}
+
+.choice-radio:checked + .choice-label {
+    background: #00A507;
+    color: #FFF;
+font-family: SUIT;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+
+.label-container,
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 왼쪽 정렬 */
+    justify-content: flex-start; /* 상단 정렬 */
+}
+
+.label-container label {
+    margin-top:1vh;
+    text-align:left;
+    
+    color: #000;
+    font-family: SUIT;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.input-field {
+    margin-bottom: 15px; /* 라벨과 동일한 간격을 주기 위해 */
+}
+
+.label-container,
+.member-choice-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5vh;
+
+}
+
+.choice-btn {
+    display: flex;
+    width: 15vw;
+    height: 44px;
+    padding: 12px 16px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: #ECECEC;
+    border: none; /* 기본 테두리를 제거 */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.choice-btn:hover {
+    background-color: #f5f5f5;
+}
+
+
+
+form{
+    margin-right:19vh;
+    margin-top: 30px;
+}
+.form .field{
+  
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 3vw;
+    border-radius: 6px;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 108px;
+  }
+  .family-btn-layout{
+    display: flex;
+    width: 300px;
+    height: 60px;
     padding: 12px 16px;
     justify-content: center;
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
-    background: #00A507;
-    cursor: pointer; /* 마우스를 올렸을 때 손가락 모양으로 변경 */
-}
+    background-color:#00A507;
+    transition: background-color 0.3s;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .family-btn-layout:not(:last-child){
+    margin-right: 60px;
+  }
+  
+  .family-btn-layout:hover{
+    opacity: 0.8;
+  }
 
-.child-button{
-    display: flex;
-width: 280px;
-height: 44px;
-padding: 12px 16px;
-justify-content: center;
-align-items: center;
-gap: 10px;
-flex-shrink: 0;
-    background: #ECECEC;
-    cursor:pointer;
+  .field button{
+    margin-left:19vh;
+    height: 100%;
+    width: 80%;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
+  }
+.field input{
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
 }
-
-.memberbutton {
-    display: flex;
-    align-items: center;
-    margin-top: 46px;
-    margin-right:52px;
-    justify-content: center;
-    
+.field input{
+    outline: none;
+    padding: 0 15px;
+    border: 1px solid#CACACA;
 }
-
-.memberbutton label {
-    margin-right: 30px;
-    font-family: SUIT;
+.field input:focus{
+    border-bottom-width: 2px;
+}
+.eye-icon{
+    position: absolute;
+    top: 50%;
+    right: 1vw;
+    transform: translateY(-50%);
     font-size: 18px;
-    line-height: 44px;
+    color: #8b8b8b;
+    cursor: pointer;
+    padding: 5px;
+    background-repeat: no-repeat; 
+    width: 1.5vw;                 
+    height: 2.5vh;  
+    background-size:contain;
+    background-image: url("Group\ 92.png");
+   
 }
-
-.membership {
+.field button{
+  border-radius: 3.5vw;
+background: #171717;
+    color: #fff;
+    font-family: SUIT;
+font-size: 1vw;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.field button:hover{
+    background-color: #000;
+}
+.form-link{
+    text-align: center;
+    margin-top: 10px;
+}
+.form-link span,
+.form-link a{
+    font-size: 14px;
+    font-weight: 400;
+    color: #232836;
+}
+.form a{
+    color: #0171d3;
+    text-decoration: none;
+}
+.form-content a:hover{
+    text-decoration: underline;
+}
+.line{
+    position: relative;
+    height: 1px;
+    width: 100%;
+    margin: 36px 0;
+    background-color: #d4d4d4;
+}
+.line::before{
+    content: 'Or';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFF;
+    color: #8b8b8b;
+    padding: 0 15px;
+}
+.media-options a{
     display: flex;
     align-items: center;
-    gap: 35px;
+    justify-content: center;
+}
+a.facebook{
+    color: #fff;
+    background-color: #4267b2;
+}
+a.facebook .facebook-icon{
+    height: 28px;
+    width: 28px;
+    color: #0171d3;
+    font-size: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+.facebook-icon,
+img.google-img{
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+}
+img.google-img{
+    height: 20px;
+    width: 20px;
+    object-fit: cover;
+}
+a.google{
+    border: 1px solid #CACACA;
+}
+a.google span{
+    font-weight: 500;
+    opacity: 0.6;
+    color: #232836;
 }
 
-.membership label {
-    margin-right: 5px;
-}
-
-
-
-
-.input-field1 label{
-    margin-right: 30px; /* 라벨과 입력 필드 사이의 공간 */
-    font-family: SUIT; /* 폰트 설정 */
-    font-size: 18px; /* 글꼴 크기 */
-    line-height: 44px; /* 입력 필드와 같은 높이로 설정 */
-    padding-top: 20px; /* 라벨을 조금 위로 올림 */
-}
-
-.input-field2 label{
-    margin-right: 30px; /* 라벨과 입력 필드 사이의 공간 */
-    font-family: SUIT; /* 폰트 설정 */
-    font-size: 18px; /* 글꼴 크기 */
-    line-height: 44px; /* 입력 필드와 같은 높이로 설정 */
-    padding-top: 6px; /* 라벨을 조금 위로 올림 */
-}
-
-.input-field3 label{
-    margin-right: 30px; /* 라벨과 입력 필드 사이의 공간 */
-    font-family: SUIT; /* 폰트 설정 */
-    font-size: 18px; /* 글꼴 크기 */
-    line-height: 44px; /* 입력 필드와 같은 높이로 설정 */
+@media screen and (max-width: 400px) {
+    .form{
+        padding: 20px 10px;
+    }
     
 }
 
-.input-field4 label{
-    margin-right: 30px; /* 라벨과 입력 필드 사이의 공간 */
-    font-family: SUIT; /* 폰트 설정 */
-    font-size: 18px; /* 글꼴 크기 */
-    line-height: 34px; /* 입력 필드와 라벨의 높이 차이 조정 */
-    position: relative;
-    top: -5px;
-}
-
-.possible{
-    text-align:left;
-    margin-left:80px;
-    color: #484848;
-font-family: SUIT;
-font-size: 12px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-margin-top:10px;
-}
-
-.text2{
-    text-align:center;
-    margin-top: 20px;
-}
-
-.input2{
-    text-align:center;
-    align-items:center;
-    margin-right:60px;
-}
 
 /* footer */
 footer {
-    width: 100%;
+   
+    width: 100vw; /* 뷰포트 너비에 꽉 차도록 설정 */
     height: 200px;
     background-color: #F4F4F4;
-}
-
-.footercontainer {
+    box-sizing: border-box; /* 패딩과 테두리가 전체 크기에 포함되도록 설정 */
+  }
+  
+  .footercontainer {
     display: flex;
     justify-content: space-between;
-    padding: 24px 240px;
-}
-
-.container1,
-.container2 {
-    width: 50%; 
+    padding: 24px 5vw; /* 좌우 패딩을 뷰포트 너비의 5%로 설정 */
+  }
+  
+  .container1,
+  .container2 {
+    width: 50%;
     display: flex;
-    flex-direction: column; 
-}
-
-.container1 {
+    flex-direction: column;
+  }
+  
+  .container1 {
     text-align: left;
-    margin-top:45px;
-}
-
-.container2 {
+    margin-top: 40px;
+  }
+  
+  .container2 {
     text-align: right;
-}
-
-.inform1 {
+  }
+  
+  .inform1 {
     display: flex;
     align-items: center;
     flex-direction: row;
     margin-bottom: 12px;
-}
-
-.inform2 {
+  }
+  
+  .inform2 {
     margin-bottom: 12px;
-}
-
-.inform5 {
-    text-align: right; 
-    margin-top: -60px; 
-    line-height:1.5;
-}
+  }
+  
+  .inform5 {
+    text-align: right;
+    margin-top: -60px;
+    line-height: 1.5;
+  }
