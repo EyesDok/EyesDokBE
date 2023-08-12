@@ -9,7 +9,10 @@ body {
   position: relative;
 }
 
-
+#kakao-link-btn{
+  color: #000; /* 원하는 색상으로 변경. 예: 검은색으로 변경 */
+  text-decoration: none;
+}
 
 /*header+nav*/
 
