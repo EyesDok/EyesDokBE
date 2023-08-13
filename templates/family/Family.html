@@ -15,9 +15,11 @@
 </div>
 
 <section class="sec">
+  <form method="post">
+    {% csrf_token %}
     <div class="input-group">
       <label for="name"></label>
-      <input class="family-layout family-font" type="text" id="name" name="name" placeholder="눈똑방 이름을 입력해주세요"
+      <input class="family-layout family-font" type="text" id="name" name="familyname" placeholder="눈똑방 이름을 입력해주세요"
              maxlength="20">
 
       <div style="align-items: center">
