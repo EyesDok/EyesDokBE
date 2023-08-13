@@ -1,0 +1,597 @@
+@import url('https://webfontworld.github.io/sunn/SUIT.css');
+
+
+
+
+body {
+    
+  margin: 0;
+  padding: 0;
+  position: relative; 
+  }
+
+/*header+nav*/
+
+#NoonDDock {
+  position: relative;
+}
+
+#NoonDDock.underline a {
+    position: relative;
+}
+
+#NoonDDock.underline a::after {
+    content: '';
+    position: absolute;
+    bottom: -45px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+height: 6.041px;
+flex-shrink: 0;
+    background-color: #00FF00; 
+}
+
+
+ a:link { 
+  color: #fff;
+  text-decoration: none;
+}
+
+ a:visited { 
+  color: #fff; 
+  text-decoration: none;}
+
+  a:hover{
+    color: #fff; 
+    text-decoration: none;
+  }
+ 
+ a{
+  text-decoration:none;
+ }
+ 
+ .container{
+  display:block;
+ }
+ /*nav*/
+ 
+ nav {
+  display: flex;
+  height: 119px;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 100vw; 
+  background: #000;
+  }
+
+ nav div{
+   flex-grow: 0.3;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ 
+   color: #fff;
+   font-size: 20px;
+   font-family: SUIT;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 24px;
+ }
+ 
+ .navContainer1 > div{
+   flex-grow: 0.3;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   margin-left:115px;
+ }
+ 
+ .navContainer1{
+    
+   margin: 0 auto;
+   max-width: 100rem;
+   justify-content: center;
+   gap:20px;
+ }
+ 
+ .navContainer2{
+   margin: 0 auto;
+   max-width: 100rem;
+ }
+ 
+ .navContainer2 .login {
+    margin-left: 60px; 
+ }
+ 
+ .navContainer2 .join {
+    margin-right: 60px; 
+ }
+ 
+ .navContainer2 > div {
+    flex-grow: 0.03;
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+ }
+
+
+ #NoonDDock,#family,#my{
+    color: #FFF;
+font-family: SUIT;
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+ }
+
+ .login,.join{
+    color: #FFF;
+font-family: SUIT;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+ }
+
+  
+
+  .logo-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.logo-text {
+    font-size: 1rem; 
+    color: white; 
+}
+
+.titlecon{
+  justify-content: center;
+  text-align:center;
+  align-items: center;
+  display:flex;
+}
+
+
+.maintitle{
+  margin-top: 100px;
+  width:1000px;
+  height:43px;
+  color: #000;
+font-family: SUIT;
+font-size: 40px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.titlebutton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.5vh;
+  text-align: left;
+  }
+  
+  .galleryTitle {
+  font-family: SUIT;
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+  margin-left:15px;
+  }
+  
+  .button-container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 20px;
+  gap: 20px;
+  margin-left:15px;
+  }
+  
+  .custom-button {
+  width: 80px;
+  border-radius: 60px;
+  border: 2px solid #00A507;
+  display: inline-flex;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  font-family: SUIT;
+  font-size: 20px;
+  font-weight: 600;
+  }
+  
+  .custom-button:hover {
+  background-color: #00A507;
+  color: rgb(0, 0, 0);
+  }
+ 
+  /*gallery*/
+.gallery{
+  width: 80vw;
+  margin: 3vh auto 0px;
+  text-align: center;
+  overflow: hidden;
+}
+
+section.gallery{
+    position:relative;
+}
+section{
+    display:block;
+    margin-left:1.5vw;
+}
+
+
+.galleryTitle {
+  margin-left:310px;
+  width:500px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    max-width: 100rem;
+    margin-top: 94px;
+    color: #000;
+font-family: SUIT;
+font-size: 28px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+    transform: translateX(150px); 
+}
+
+.galleryTitle2 {
+    margin-left:810px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width:1000px;
+    max-width: 1000rem;
+    margin-top: 94px;
+    color: #000;
+font-family: SUIT;
+font-size: 28px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+    transform: translateX(150px); 
+}
+
+.center-section{
+  width:80vw;
+}
+
+.picAndNameContainer {
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+  gap: 6vh;
+  max-width:80vw;
+}
+
+
+  
+.picAndName {
+  width: 20vw; /* 고정 너비 설정 */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.infor1{
+  text-align:left;
+  color: #000;
+  font-family: SUIT;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+  
+
+  .spot{
+    margin:30px 0 auto;
+    text-align:left;
+    color: #000;
+font-family: SUIT;
+font-size: 1.7rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+  }
+
+  .infor{
+    color: #000;
+font-family: SUIT;
+font-size: 1.2rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+  }
+  
+  .name {
+    margin-right:15px;
+    color: #000;
+    font-family: SUIT;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #000;
+font-family: SUIT;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+
+.imgContainer {
+    position: relative; 
+  }
+
+  .imgContainer > img {
+    width: 19.5vw; /* 이미지의 너비를 부모 요소의 100%로 설정 */
+  height: 45vh;
+  }
+  
+  
+
+  /*chat*/
+
+  .sec1{
+    width:100vw;
+      margin:auto;
+
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto; /* 가운데 정렬 */
+  overflow: hidden; /* 내부 요소가 넘치지 않도록 설정 */
+}
+
+  .chat {
+    width: 80vw;
+    margin-top: 10vh;
+    margin-bottom:10vh;
+    margin-left:17.6vw;
+    justify-content: center;
+    text-align: left; /* 내부 요소 가운데 정렬 */
+    overflow: hidden;
+    align-items: center;
+}
+
+  .gallery::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -70px; 
+    left: 0;
+    right: 0;
+    height: 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0));
+  }
+  
+  #comment{
+    margin-top:5vh;
+    font-size: 3rem;
+    color: #000;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+    color: #000;
+font-family: SUIT;
+font-size: 30px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+  }
+  
+  #comment-write{
+    width: 61.5vw;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-top: 5vh;
+    align-items: center;
+    margin-bottom: 3vh;
+  }
+
+  #comment-write1{
+    width: 61.5vw;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-top: 0vh;
+    align-items: center;
+    margin-bottom: -6vh;
+  }
+  
+  #cuser1{
+    width: 72px;
+height: 72px;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+  }
+  #comment-write > textarea{
+    flex-grow: 1;
+    margin-left: 2vw;
+    height: 12vh;
+    outline: none;
+    border: none;
+    resize: none;
+    border-radius: 12px;
+    background: #FFF;
+    box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.10);
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding: 2vh 2vw 2vh 2vw;
+  }
+
+  #cbtn1{
+    display: flex;
+    display: flex;
+    padding: 6px 10px;
+    position: absolute;
+    right: 2vh;
+    bottom: 2vh;
+    color: white;
+    border-radius: 5vh;
+    background: #000;
+    
+    text-align: center;
+    cursor: pointer;
+  }
+  #cbtn1:hover{
+    background: #00091f;
+  }
+  
+  #comment-box{
+    width: 55vw;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-top: 4vh;
+    margin-bottom: 6vh;
+  }
+  #comment-box #cuser{
+    width: 40px;
+    height: 40px;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+  }
+  #comment-box > div{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2vw;
+  }
+  #comment-box #divWriter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  #creator1{
+    font-size: 1.6rem;
+    color: #000;
+    font-weight: 500;
+  }
+  
+  #date1{
+    color: #7E7E7E;
+    font-size: 1rem;
+    padding-left: 1.5vh;
+    font-weight: 400;
+  }
+  #ctext2{
+    flex-grow: 1;
+    height: 10vh;
+    font-size: 1.3rem;
+    background: #FFF;
+    color: #7E7E7E;
+    font-size: 1.3rem;
+    padding: 2vh 2vw 2vh 2vw;
+    margin-top: 5vh;
+  }
+
+  #text-container{
+    margin-top:-0.5vh;
+  }
+
+  #text-container1{
+    margin-top:3vh;
+  }
+  
+  #buttons-container {
+    margin: 10vh 6vh 0 6vh;
+    display: flex;
+    width: 100%;
+    margin-left:12vh;
+    gap:4%;
+}
+
+.custom-button1 {
+    width:24vw;
+    height: 8vh;
+    background: #00A507;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FEE;
+font-family: SUIT;
+font-size: 1.8vw;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+
+
+
+/* footer */
+footer {
+  margin-top:300px;
+  width: 100vw; 
+  height: 200px;
+  background-color: #F4F4F4;
+  box-sizing: border-box; 
+}
+
+.footercontainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 5vw; 
+}
+
+.container1,
+.container2 {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container1 {
+  text-align: left;
+  margin-top: 40px;
+}
+
+.container2 {
+  text-align: right;
+}
+
+.inform1 {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 12px;
+}
+
+.inform2 {
+  margin-bottom: 12px;
+}
+
+.inform5 {
+  text-align: right;
+  margin-top: -60px;
+  line-height: 1.5;
+}
+

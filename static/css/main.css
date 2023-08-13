@@ -1,11 +1,33 @@
 @import url('https://webfontworld.github.io/sunn/SUIT.css');
 
+
 body{
    margin: 0;
    padding: 0;
  }
 
-/*header+nav*/
+ /*header+nav*/
+
+ #NoonDDock {
+  position: relative;
+}
+
+#NoonDDock.underline a {
+    position: relative;
+}
+
+#NoonDDock.underline a::after {
+    content: '';
+    position: absolute;
+    bottom: -43px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+height: 6.041px;
+flex-shrink: 0;
+    background-color: #00FF00; 
+}
+
 
  a:link { 
   color: #fff;
@@ -31,16 +53,16 @@ body{
  /*nav*/
  
  nav {
-   display: flex;
-height: 119px;
-flex-shrink: 0;
-   justify-content: center;
-   align-items: center;
-   margin: 0 auto; 
-   max-width: 200rem;
-   background: #000;
- }
- 
+  display: flex;
+  height: 119px;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 100vw; 
+  background: #000;
+  }
+
  nav div{
    flex-grow: 0.3;
    display: flex;
@@ -60,7 +82,7 @@ flex-shrink: 0;
    display: flex;
    justify-content: flex-end;
    align-items: center;
-   margin-left:170px;
+   margin-left:115px;
  }
  
  .navContainer1{
@@ -123,62 +145,80 @@ line-height: normal;
     color: white; 
 }
 
+  
 
-  /*mainbanner*/
+  .logo-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.logo-text {
+    font-size: 1rem; 
+    color: white; 
+}
+
+
+/*banner*/
+
 
   .banner{
     position:relative;
 
   }
 
+
+
 .picture{
   
   width:100%;
-  height:809px;
+  height:90vh;
   background: url("image\ 23.jpg") no-repeat center ;
   }
 
-  .logo1{
-    position:absolute;
-    top:47%;
-    left:39%;
-    transform:translate(-50%,-50%);
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    color: #FFF;
-font-family: SUIT;
-font-size: 60px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-  }
-
-  .logo2{
-    position:absolute;
-    top:58%;
-    left:33%;
-    transform:translate(-50%,-50%);
-    justify-content: center;
-    align-items: center;
-    display: flex;
+  .logo1 {
+    position: absolute;
+    top: 48%;
+    left: 10vw;
+    transform: translateY(-50%);
+    text-align: center;
     color: #FFF;
     font-family: SUIT;
     font-size: 60px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    margin-bottom: 60px;
   }
+  
+  .logo2 {
+    position: absolute;
+    top: 50%;
+    left: 10vw;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #FFF;
+    font-family: SUIT;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 60px;
+  }
+  
+  
+  
 
   /* smallbanner */
 
   .banner2 {
     position:relative;
-    margin-top:140px;
+    margin-top: 5vh; /* 뷰포트 단위 사용 */
     width: 100%;
-    height: 245px;
+    height: 25vh; /* 높이를 뷰포트의 25%로 설정 */
     background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.79) 0%, rgba(0, 0, 0, 0.46) 52.95%, rgba(0, 0, 0, 0.18) 68.58%, rgba(217, 217, 217, 0.00) 82.65%, rgba(217, 217, 217, 0.00) 100%), url("banner2.png");
     background-repeat: no-repeat;
+    background-size: cover; /* 배경 이미지 크기를 컨테이너에 맞게 조절 */
     background-position: center;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
@@ -186,16 +226,15 @@ line-height: normal;
 
   .logo3{
     position:absolute;
-    top:18%;
-    left:22.5%;
-  
+    top:8%;
+    left:10%;
+    font-size:30px;
     justify-content: center;
     align-items: center;
     display: flex;
 
     color: #FFF;
 font-family: SUIT;
-font-size: 30px;
 font-style: normal;
 font-weight: 800;
 line-height: 52px; 
@@ -203,15 +242,15 @@ line-height: 52px;
 
   .logo4{
     position:absolute;
-    top:42%;
-    left:22.5%;
+    top:35%;
+    left:10%;
     justify-content: center;
     align-items: center;
     display: flex;
 
     color: #FFF;
 font-family: SUIT;
-font-size: 20px;
+font-size:20px;
 font-style: normal;
 font-weight: 500;
 line-height: 30px; 
@@ -219,8 +258,8 @@ line-height: 30px;
 
   .myLog{
     position:absolute;
-    top:75%;
-    left:22.5%;
+    top:72%;
+    left:10%;
     display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -232,8 +271,8 @@ line-height: 30px;
   
   .myLog>span{
     position:absolute;
-    top:30%;
-    left:25%;
+    top:26%;
+    left:24%;
     color: #FFF;
   font-family: SUIT;
   font-size: 16px;
@@ -247,130 +286,126 @@ line-height: 30px;
   }
 
 
-  /*gallery*/
+
+/*gallery*/
 .gallery{
-    margin:0 auto;
+max-width: 1200px;
+margin: 0 auto;
+
+
 }
 
 section{
-    display:block;
+display:block;
 }
 
-.titlebutton{
-    display: flex;
-  align-items: center; 
-  flex-direction: column;
-  justify-content: left; 
-  margin-right:1290px;
+.titlebutton {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding-top: 94px;
+text-align: left;
 }
+
 .galleryTitle {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    max-width: 100rem;
-    margin-top: 94px;
-    color: #000;
 font-family: SUIT;
-font-size: 28px;
-font-style: normal;
+font-size: 2vw;
 font-weight: 700;
-line-height: normal;
-    transform: translateX(150px); 
+color: #000;
+margin-left:15px;
 }
-
 
 .button-container {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    max-width: 100rem;
-    margin-top: 20px;
-    gap:20px;
-    transform: translateX(160px); 
+display: flex;
+justify-content: left;
+align-items: center;
+margin-top: 20px;
+gap: 20px;
+margin-left:15px;
 }
 
 .custom-button {
-    border-radius: 60px;
-    border: 2px solid #00A507;
-    display: inline-flex;
-    padding: 10px 20px;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none; 
-    color: #000;
+width: 80px;
+border-radius: 60px;
+border: 2px solid #00A507;
+display: inline-flex;
+padding: 10px 20px;
+justify-content: center;
+align-items: center;
+text-decoration: none;
+color: #000;
 font-family: SUIT;
 font-size: 20px;
-font-style: normal;
 font-weight: 600;
-line-height: normal;
 }
 
 .custom-button:hover {
-    background-color: #00A507; 
-    color: rgb(0, 0, 0); 
+background-color: #00A507;
+color: rgb(0, 0, 0);
 }
 
 
+
 .picAndNameContainer {
-    margin-top:59px;
-    display: flex;
-    justify-content: center;
-    gap: 36px; 
-  }
-  
-  .picAndName {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
+margin-top:59px;
+display: flex;
+justify-content: center;
+gap: 36px; 
+}
 
-  .musical{
-    color: #000;
-  font-family: SUIT;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  text-align: left; 
-  margin-right:50px;
-  width: 200px; 
-  }
-  
-  .name {
-    margin-right:15px;
-    color: #000;
-    font-family: SUIT;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    
-  }
+.picAndName {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
 
+
+.musical{
+color: #000;
+font-family: SUIT;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+text-align: left; 
+margin-right:50px;
+width: 200px; 
+}
+
+.name {
+margin-right:15px;
+color: #000;
+font-family: SUIT;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+
+}
 /* footer */
 footer {
-  width: 100%;
+  width: 100vw; /* 뷰포트 너비에 꽉 차도록 설정 */
   height: 200px;
   background-color: #F4F4F4;
+  box-sizing: border-box; /* 패딩과 테두리가 전체 크기에 포함되도록 설정 */
 }
 
 .footercontainer {
   display: flex;
   justify-content: space-between;
-  padding: 24px 240px;
+  padding: 24px 5vw; /* 좌우 패딩을 뷰포트 너비의 5%로 설정 */
 }
 
 .container1,
 .container2 {
-  width: 50%; 
+  width: 50%;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .container1 {
   text-align: left;
-  margin-top:40px;
+  margin-top: 40px;
 }
 
 .container2 {
@@ -389,8 +424,7 @@ footer {
 }
 
 .inform5 {
-  text-align: right; 
-  margin-top: -60px; 
-  line-height:1.5;
+  text-align: right;
+  margin-top: -60px;
+  line-height: 1.5;
 }
-

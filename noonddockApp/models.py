@@ -8,7 +8,7 @@ class Post(models.Model):
     pub_date    =   models.DateField("PUB_DATE", auto_now_add=True) #작성일자
     recommend   =   models.PositiveIntegerField("RECOMMEND", default=0) #추천수수집을 위한 모델
     image       =   models.ImageField("IMAGE", upload_to="postImage/", default="static/img/defaultImg.png") #포스트 사진
-    family      =   models.ForeignKey(CustomUser, on_delete=models.CASCADE) #UserFK
+    user        =   models.ForeignKey(CustomUser, on_delete=models.CASCADE) #UserFK
     class Meta:
         db_table = 'post'
 
@@ -16,10 +16,10 @@ class Post(models.Model):
         return self.title
 
 class Save(models.Model):
-    family      =   models.ForeignKey(CustomUser, on_delete=models.CASCADE) #UserFK
+    user        =   models.ForeignKey(CustomUser, on_delete=models.CASCADE) #UserFK
     post        =   models.ForeignKey(Post, on_delete=models.CASCADE, default=1) #PostFK
     pub_date    =   models.DateField("PUB_DATE", auto_now_add=True) #작성일자
 
     #Save 모델의 데이터베이스 테이블에 대해, user 필드와 post 필드의 조합이 고유하게 유지
     class Meta:
-        unique_together = ('family', 'post')
+        unique_together = ('user', 'post')
