@@ -49,11 +49,11 @@
     <div class="cWidth" id="divBanner">
         <p>우리 가족에게 공유,<br>지금 눈똑 초대장을 보내보세요</p>
         <div style="position:absolute; bottom:3vw; left:17vw;"><a id="kakao-link-btn" href="javascript:kakaoShare()">
-          <img src="{% static 'images/kakaotalk.png' %}" style="position:absolute; left:0vw; bottom:4vw; width:4vw">
+          <img src="{% static 'img/kakaotalk.png' %}" style="position:absolute; left:0vw; bottom:4vw; width:4vw">
         카카오톡<br>공유하기</a></div>
-        <img src="{% static 'images/band.png' %}" style="position:absolute; left:25vw; bottom:7vw; width:4vw">
+        <img src="{% static 'img/band.png' %}" style="position:absolute; left:25vw; bottom:7vw; width:4vw">
         <div style="position:absolute; bottom:3vw; left:25vw;">밴드로<br> 공유하기</div>
-        <img src="{% static 'images/banner.png' %}" alt="배너 이미지">
+        <img src="{% static 'img/banner.png' %}" alt="배너 이미지">
         
     </div>
 </div>
@@ -63,13 +63,18 @@
 <section class="chat">
     
     <div id="comment">오늘의 눈똑방 랭킹
-        <a href="{% url 'family:createFamily'%}"><div class="make"><img src="{% static 'images/Group 493.png' %}">&nbsp;눈똑방 만들기</div></a>
+        <a href="{% url 'family:createFamily'%}"><div class="make"><img src="{% static 'img/Group 493.png' %}">&nbsp;눈똑방 만들기</div></a>
     </div>
     </div>
     {% for family in families %}
     <div id="comment-write">
+<<<<<<< Updated upstream
         <div id="square"><p class="squarename">{{family.familyname}}</p>
-        <div id="star"><img src="{% static 'images/noon.png' %}">65</div></div>
+        <div id="star"><img src="{% static 'img/noon.png' %}">65</div></div>
+=======
+        <div id="square"><p class="squarename">{{family.familyname}}</p>
+        <div id="star"><img src="{% static 'img/noon.png' %}">65</div></div>
+>>>>>>> Stashed changes
     </div>
     {% endfor %}
 

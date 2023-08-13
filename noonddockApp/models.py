@@ -9,6 +9,7 @@ class Post(models.Model):
     recommend   =   models.PositiveIntegerField("RECOMMEND", default=0) #추천수수집을 위한 모델
     image       =   models.ImageField("IMAGE", upload_to="postImage/", default="static/img/defaultImg.png") #포스트 사진
     user        =   models.ForeignKey(CustomUser, on_delete=models.CASCADE) #UserFK
+    category    =   models.PositiveIntegerField("CATEGORY") #카테고리
     class Meta:
         db_table = 'post'
 

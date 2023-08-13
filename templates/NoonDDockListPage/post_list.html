@@ -1,19 +1,20 @@
-<html lang="ko">
-    <head>
-        <meta charset="utf-8">
-        <title>눈똑들이다</title>
+{% extends 'base.html' %}
+{% load static %}
+{%block title %}눈똑들이다{% endblock%}
+{% block link %}
         <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Kyobo+Handwriting 2022&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="list.css">
+        <link rel="stylesheet" href="post_list.css">
         <script type="text/javascript" src="my_script.js"></script>
-    </head>
+{% endblock %}
+    
 
     <body>
         <nav>
             <div class="logo-container">
-                <a href="/MainPage/main.html"><img src="logo.png" alt="Logo"></a> 
+                <a href="/MainPage/main.html"><img src="{% static 'img/logo.png' %}" alt="Logo"></a> 
                 <div class="logo-text">NoonDDock</div> 
             </div>
             <div class="navContainer1">

@@ -1,3 +1,4 @@
+{% load static %}
 <html lang="ko">
     <head>
         <meta charset="utf-8">
@@ -6,14 +7,14 @@
         <link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Kyobo+Handwriting 2022&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="Inform.css">
-        <script type="text/javascript" src="script.js"></script>
+        <link rel="stylesheet" href="{% static 'css/Inform.css' %}">
+        <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
     </head>
 
     <body>
         <nav>
             <div class="logo-container">
-                <a href="/MainPage/main.html"><img src="logo.png" alt="Logo"></a> 
+                <a href="/MainPage/main.html"><img src="{% static 'img/logo.png' %}" alt="Logo"></a> 
                 <div class="logo-text">NoonDDock</div> 
             </div>
             <div class="navContainer1">
@@ -51,7 +52,7 @@
         <div class="picAndNameContainer">
             <div class="picAndName">
               <div class="imgContainer">
-                <img src="fish.jpeg" alt="">
+                <img src="{% static 'img/fish.jpeg' %}" alt="">
             </div>
               <p class="spot">위치</p>
               <p class="infor">인천광역시 웅진군 영흥면 내리 8-213</p>
@@ -60,7 +61,7 @@
             </div>
             <div class="picAndName">
               <div class="imgContainer">
-                <img src="unsplash_ufFIweqSPd4.png" alt="">
+                <img src="{% static 'img/unsplash_ufFIweqSPd4.png' %}" alt="">
             </div>
               <p class="spot">주차</p>
               <p class="infor">근처 부둣가에 주차를 추천합니다.</p>
@@ -69,7 +70,7 @@
             </div>
             <div class="picAndName1">
                 <div class="imgContainer">
-                    <img src="mount.jpeg" alt="">
+                    <img src="{% static 'img/mount.jpeg' %}" alt="">
                 </div>
                 <p class="spot">눈똑 수</p>
                 <p class="infor1">230</p>
@@ -89,14 +90,14 @@
                 <div id="comment">실시간 눈똑 근황</div>
         
                 <div id="comment-write">
-                    <img id="cuser1" src="user2.png">
+                    <img id="cuser1" src="{% static 'img/user2.png' %}">
                     <textarea placeholder="해당 게시물에 대한 00님의 생각을 적어주세요."></textarea>
                     <div id="cbtn1">등록</div>
                 </div>
                 
         
                 <div id="comment-write1">
-                    <img id="cuser1" src="user2.png">
+                    <img id="cuser1" src="{% static 'img/user2.png' %}">
                     <div id="text-container">
                         <div id="ctext2">
                             낚시 좋아하는 울 아빠 카톡으로 링크 보내드렸더니 보시구는 바로 다녀오셨어요^^ 
@@ -106,7 +107,7 @@
                 </div>
                 
                 <div id="comment-write1">
-                    <img id="cuser1" src="user2.png">
+                    <img id="cuser1" src="{% static 'img/user2.png' %}">
                     <div id="text-container1">
                         <div id="ctext2">
                             인천 주민인데, 여기 진짜 낚시 포인트에요!! 주변에 횟집도 많아서 바로 식사하기에도 좋아요
@@ -115,7 +116,7 @@
                 </div>
 
                 <div id="comment-write1">
-                    <img id="cuser1" src="user2.png">
+                    <img id="cuser1" src="{% static 'img/user2.png' %}">
                     <div id="text-container1">
                         <div id="ctext2">
                             개인적으로는 사람이 너무 많아서 별로였습니다 ㅜㅜ
@@ -124,7 +125,7 @@
                 </div>
 
                 <div id="comment-write1">
-                    <img id="cuser1" src="user2.png">
+                    <img id="cuser1" src="{% static 'img/user2.png' %}">
                     <div id="text-container">
                         <div id="ctext2">
                             낚시 좋아하는 울 아빠한테 알려드렸더니 차로 30분거리라고, 바로 다녀오시더라구요~ 
@@ -134,7 +135,7 @@
                 </div>
                
                 <div id="comment-write1">
-                    <img id="cuser1" src="user2.png">
+                    <img id="cuser1" src="{% static 'img/user2.png' %}">
                     <div id="text-container1">
                         <div id="ctext2">
                             근처에 횟집도 많고 바다 뷰도 은근 좋아요~! 낚시 포인트로 추천합니다.
