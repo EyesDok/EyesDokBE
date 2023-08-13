@@ -79,3 +79,24 @@ def post_inform(request, post_id):
 
 def main(request):
     return render(request, 'MainPage/main.html')
+
+def noonddock(request):
+    return render(request, 'NoonDDockPage/NoonDDock.html')
+
+#나의 눈똑
+def post_recommend_view(request):
+    post_title_list = Post.objects.all().order_by('-recommend')[:12]
+    season = int(request.GET.get('season'))
+    # 해당 시즌에 대한 게시물을 가져옴
+    music_list = Music.objects.filter(category=season)
+    if request.user.is_authenticated:
+        for music in music_list:
+            music.is_liked = music.save_set.filter(user=request.user).exists()
+
+    
+    context = {
+        'music_list': music_list,
+        'music_title_list' : music_title_list,
+    }
+
+    return render(request, 'musics/music_season.html', context)
