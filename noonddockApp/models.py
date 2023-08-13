@@ -1,4 +1,5 @@
 from django.db import models
+from accounts.models import CustomUser
 
 class Post(models.Model):
     content     =   models.TextField("CONTENT", max_length=300, default="포스트 내용") #포스트 내용
@@ -6,6 +7,7 @@ class Post(models.Model):
     pub_date    =   models.DateField("PUB_DATE", auto_now_add=True) #작성일자
     recommend   =   models.PositiveIntegerField("RECOMMEND", default=0) #추천수수집을 위한 모델
     image       =   models.ImageField("IMAGE", upload_to="postImage/", default="static/img/defaultImg.png") #포스트 사진
+    family      =   models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
 
     def __str__(self):
