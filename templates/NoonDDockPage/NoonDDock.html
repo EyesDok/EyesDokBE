@@ -1,18 +1,19 @@
+{% load static %}
 <html lang="ko">
     <head>
         <meta charset="utf-8">
         <title>눈똑들이다</title>
         <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
-        <link rel="stylesheet" href="NoonDDock.css">
-        <script type="text/javascript" src="my_script.js"></script>
+        <link rel="stylesheet" href="{% static 'css/NoonDDock.css' %}">
+        <script type="text/javascript" src="{% static 'js/my_script.js' %}"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
     <body>
         <nav>
             <div class="logo-container">
-                <a href="/MainPage/main.html"><img src="logo.png" alt="Logo"></a> 
+                <a href="/MainPage/main.html"><img src="{% static 'img/logo.png' %}" alt="Logo"></a> 
                 <div class="logo-text">NoonDDock</div> 
             </div>
             <div class="navContainer1">
@@ -53,10 +54,10 @@
             <div class="picAndNameContainer">
                 <div class="picAndName">
                   <div class="imgContainer">
-                    <img src="image1.png" alt="">
+                    <img src="{% static 'img/image1.png' %}" alt="">
                     <button class="noon-button" onclick="toggleHeart(this)">
                         <span class="noon-number">151</span>
-                        <img src="group 166.png" class="noon-image">
+                        <img src="{% static 'img/group 166.png' %}" class="noon-image">
                     </button>
                 </div>
                   <p class="spot">강릉</p>
@@ -67,10 +68,10 @@
                 </div>
                 <div class="picAndName">
                   <div class="imgContainer">
-                    <img src="image2.png" alt="">
+                    <img src="{% static 'img/image2.png' %}" alt="">
                     <button class="noon-button" onclick="toggleHeart(this)">
                         <span class="noon-number">151</span>
-                        <img src="group 166.png" class="noon-image">
+                        <img src="{% static 'img/group 166.png' %}" class="noon-image">
                     </button></div>
                   <p class="spot">휴양지 느낌의 감성 분위기 캠핑 스팟</p>
                   <div class="buttons">
@@ -80,10 +81,10 @@
                 </div>
                 <div class="picAndName">
                     <div class="imgContainer">
-                        <img src="image3.png" alt="">
+                        <img src="{% static 'img/image3.png' %}" alt="">
                         <button class="noon-button" onclick="toggleHeart(this)">
                             <span class="noon-number">151</span>
-                            <img src="group 166.png" class="noon-image">
+                            <img src="{% static 'img/group 166.png' %}" class="noon-image">
                         </button></div>
                     <p class="spot">휴양지 느낌의 감성 분위기 캠핑 스팟</p>
                     <div class="buttons">
@@ -132,10 +133,10 @@
                 <div class="picAndNameContainer">
                     <div class="picAndName">
                       <div class="imgContainer">
-                        <img src="image1.png" alt="">
+                        <img src="{% static 'img/image1.png' %}" alt="">
                         <button class="noon-button" onclick="toggleHeart(this)">
                             <span class="noon-number">151</span>
-                            <img src="group 166.png" class="noon-image">
+                            <img src="{% static 'img/group 166.png' %}" class="noon-image">
                         </button>
                     </div>
                       <p class="spot">강릉</p>
@@ -146,10 +147,10 @@
                     </div>
                     <div class="picAndName">
                       <div class="imgContainer">
-                        <img src="image2.png" alt="">
+                        <img src="{% static 'img/image2.png' %}" alt="">
                         <button class="noon-button" onclick="toggleHeart(this)">
                             <span class="noon-number">151</span>
-                            <img src="group 166.png" class="noon-image">
+                            <img src="{% static 'img/group 166.png' %}" class="noon-image">
                         </button></div>
                       <p class="spot">휴양지 느낌의 감성 분위기 캠핑 스팟</p>
                       <div class="buttons">
@@ -159,10 +160,10 @@
                     </div>
                     <div class="picAndName">
                         <div class="imgContainer">
-                            <img src="image3.png" alt="">
+                            <img src="{% static 'img/image3.png' %}" alt="">
                             <button class="noon-button" onclick="toggleHeart(this)">
                                 <span class="noon-number">151</span>
-                                <img src="group 166.png" class="noon-image">
+                                <img src="{% static 'img/group 166.png' %}" class="noon-image">
                             </button></div>
                         <p class="spot">휴양지 느낌의 감성 분위기 캠핑 스팟</p>
                         <div class="buttons">

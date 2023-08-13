@@ -6,10 +6,10 @@
         <link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Kyobo+Handwriting 2022&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="post_list.css">
-        <script type="text/javascript" src="my_script.js"></script>
+        <link rel="stylesheet" href="{% static 'css/post_list.css' %}">
+        <script type="text/javascript" src="{% static 'js/my_script.js' %}"></script>
 {% endblock %}
-    
+{% block content %}
 
     <body>
         <nav>
@@ -114,32 +114,7 @@
     
 
     </section>
-        <footer>
-            <div class="footercontainer">
-                <div class="container1">
-                <div class="inform1">
-                    <span>이용약관&nbsp;</span>
-                    <span>&nbsp;개인정보처리방침</span>
-                </div>
-                <div class="inform2">
-                    <span>상호명: 눈똑&nbsp;&nbsp;</span>
-                </div>
-                <div  class="copy"><span>Copyright © 한성대학교 멋쟁이사자처럼 11기 All rights reserved.</span></div>
-            </div>
-    
-            <div class="container2">
-                <span  class="inform5">
-                    <br><br><br><br>
-                    PM: 김지은<br>
-                    DE: 임채현<br>
-                    BE: 박태범, 최용석<br>
-                    FE: 이나경, 이수아</span>
-            </div>
-        </div>
-        </footer>
-       
-        </body>
+{% endblock %}
 
-    </html>
 
         

@@ -12,7 +12,7 @@
     <section class="container forms">
         <div class="form login">
             <div class="form-content">
-                <img src="{% static 'images/NoonDDock.jpg'%}">
+                <img src="{% static 'img/NoonDDock.jpg' %}">
                 <header> <a href="{% url 'accounts:login' %}">로그인</a> | <a href="{% url 'accounts:signup' %}"><span>회원가입</span></a></header>
                 <form action="" id="signup-form" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
@@ -93,6 +93,6 @@
         </div>
     </div>
     </footer>
-    <script type="text/javascript" src="{% static 'js/script.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

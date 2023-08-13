@@ -11,7 +11,7 @@
     <section class="container forms">
         <div class="form login">
             <div class="form-content">
-                <img src="{% static 'images/NoonDDock.jpg' %}">
+                <img src="{% static 'img/NoonDDock.jpg' %}">
                 <header> <a href="{% url 'accounts:login' %}">로그인</a> | <a href="{% url 'accounts:signup' %}"><span>회원가입</span></a></header>
                 <form action="" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
