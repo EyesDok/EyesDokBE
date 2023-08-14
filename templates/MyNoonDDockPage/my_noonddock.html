@@ -2,71 +2,37 @@
 {% load static %}
 {%block title %}눈똑들이다{% endblock%}
 {% block link %}
+
         <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Kyobo+Handwriting 2022&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'css/post_list.css' %}">
+        <link rel="stylesheet" href="{% static 'css/My.css' %}">
         <script type="text/javascript" src="{% static 'js/my_script.js' %}"></script>
 {% endblock %}
-{% block content %}
+{% block content %}  
+
         
         <div class="titlecon">
-        <p class="maintitle">눈똑들이기</p>
+        <p class="maintitle">나의 눈똑</p>
     </div>
     
     <section class="gallery">
 
-        <div id="divSelectors">
-            <select>
-                <option value="none">지역별 카테고리 선택</option>
-                <option value="1">서울/경기/인천</option>
-                <option value="2">강원</option>
-                <option value="3">대전</option>
-                <option value="4">세종/충남/충북</option>
-                <option value="5">부산/울산</option>
-                <option value="6">강남/경북</option>
-                <option value="7">광주/전남/전북</option>
-                <option value="8">제주</option>
-            </select>
-            <select>
-                <option value="none">분야별 카테고리 선택</option>
-                <option value="1">등산/낚시</option>
-                <option value="2">공연/콘서트</option>
-                <option value="3">연극/뮤지컬</option>
-                <option value="4">스포츠/레저</option>
-                <option value="5">전시/행사</option>
-            </select>
-            <select>
-                <option value="none">정렬</option>
-                <option value="1">최신순</option>
-                <option value="2">인기순</option>
-            </select>
-        </div>
-
-        <div class="titlebutton">
-            <div class="galleryTitle">인천광역시 등산/낚시 눈똑들여보세요</div>
-        </div>
 
             <div class="center-section">
             <div class="picAndNameContainer">
                 <div class="picAndName">
                   <div class="imgContainer">
-                    <img src="{{ post.image }}" alt="{% static 'img/image1.png' %}">
-                    <button class="noon-button" onclick="toggleHeart(this, {{ post.id }})">
-                        {% if post.is_liked %}
-                        <span class="noon-number">{{ post.like_count }}</span>
+                    <img src="{% static 'img/image1.png' %}" alt="">
+                    <button class="noon-button" onclick="toggleHeart(this)">
+                        <span class="noon-number">151</span>
                         <img src="{% static 'img/group 166.png' %}" class="noon-image">
-                        {% else %}
-                        <span class="noon-number">{{ post.like_count }}</span>
-                        <img src="{% static 'img/group 166.png' %}" class="noon-image">
-                        {% endif %}
                     </button>
                 </div>
-                  <p class="spot">{{ post.title }}</p>
+                  <p class="spot">강릉</p>
                   <div class="buttons">
                     <a href="{% url '/InformPage/Inform.html' %}" class="detail-button" style="color: #000;">상세 눈똑보기</a>
-                    <a href="#" class="add-button" style="color: #000;">눈똑 들이기</a>
                 </div>
                 </div>
                 <div class="picAndName">
@@ -79,7 +45,6 @@
                   <p class="spot">휴양지 느낌의 감성 분위기 캠핑 스팟</p>
                   <div class="buttons">
                     <a href="{% url '/InformPage/Inform.html' %}" class="detail-button" style="color: #000;">상세 눈똑보기</a>
-                    <a href="#" class="add-button" style="color: #000;">눈똑 들이기</a>
                 </div>
                 </div>
                 <div class="picAndName">
@@ -92,15 +57,8 @@
                     <p class="spot">휴양지 느낌의 감성 분위기 캠핑 스팟</p>
                     <div class="buttons">
                         <a href="{% url '/InformPage/Inform.html' %}" class="detail-button" style="color: #000;">상세 눈똑보기</a>
-                    <a href="#" class="add-button" style="color: #000;">눈똑 들이기</a>
                     </div>
                 </div>
               </div>
             </div>
-    
-
-    </section>
-{% endblock %}
-
-
-        
+{% endblock %}    

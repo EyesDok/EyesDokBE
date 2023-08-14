@@ -6,7 +6,7 @@ from noonddockApp.views import main
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main', main, name='main'),
+    path('', main, name='main'),
     path('accounts/', include('accounts.urls',namespace='accounts')),
     path('family/', include('family.urls',namespace='family')),
     path('noonddock/', include('noonddockApp.urls',namespace='noonddockApp')),
