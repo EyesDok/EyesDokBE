@@ -54,4 +54,4 @@ from django.contrib.auth import logout
 
 def logout_view(request):
     logout(request)
-    return redirect('family:myFamily')  # 메인페이지로 수정 필요
+    return redirect('accounts:login')  # 메인페이지로 수정 필요
