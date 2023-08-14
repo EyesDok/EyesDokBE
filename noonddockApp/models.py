@@ -1,6 +1,14 @@
 from django.db import models
 from accounts.models import CustomUser
 
+class Profile(models.Model):
+    user        =   models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    nickname    =   models.TextField(max_length=10)
+    like_posts  =   models.ManyToManyField('Post', blank=True, related_name='like_users')
+
+    def __str__(self):
+        return self.nickname
+
 
 class Post(models.Model):
     content     =   models.TextField("CONTENT", max_length=300, default="포스트 내용") #포스트 내용
@@ -8,7 +16,7 @@ class Post(models.Model):
     pub_date    =   models.DateField("PUB_DATE", auto_now_add=True) #작성일자
     image       =   models.ImageField("IMAGE", upload_to="postImage/", default="static/img/defaultImg.png") #포스트 사진
     user        =   models.ForeignKey(CustomUser, on_delete=models.CASCADE) #UserFK
-    category    =   models.PositiveIntegerField("CATEGORY") #카테고리
+    profile     =   models.ForeignKey(Profile, on_delete=models.CASCADE) #ProfileFK
     like_count  =   models.PositiveIntegerField("LIKE_COUNT", default=0) # 좋아요 수
     class Meta:
         db_table = 'post'
@@ -26,7 +34,7 @@ class Like(models.Model):
         super(Like, self).save(*args, **kwargs)
         self.post.like_count = self.post.like_set.count()  # 좋아요 개수 업데이트
         self.post.save()
-        
+
     class Meta:
         unique_together = ('user', 'post')
 

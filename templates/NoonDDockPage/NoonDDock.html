@@ -35,15 +35,18 @@
             <div class="picAndNameContainer">
                 <div class="picAndName">
                   <div class="imgContainer">
-                    <img src="{% static 'img/image1.png' %}" alt="">
+                    <img src="{{ post.image }}" alt="{% static 'img/image1.png' %}">
                     <button class="noon-button" onclick="toggleHeart(this)">
-                        <span class="noon-number">151</span>
+                        
+                        <span class="noon-number">150{{ post.like_count }}</span>
                         <img src="{% static 'img/group 166.png' %}" class="noon-image">
+                        
                     </button>
+                    
                 </div>
                   <p class="spot">강릉</p>
                   <div class="buttons">
-                    <a href="{% url '/InformPage/Inform.html' %}" class="detail-button" style="color: #000;">상세 눈똑보기</a>
+                    <a href="/InformPage/Inform.html" class="detail-button" style="color: #000;">상세 눈똑보기</a>
                     <a href="#" class="add-button" style="color: #000;">눈똑 들이기</a>
                 </div>
                 </div>
@@ -56,7 +59,7 @@
                     </button></div>
                   <p class="spot">휴양지 느낌의 감성 분위기 캠핑 스팟</p>
                   <div class="buttons">
-                    <a href="{% url '/InformPage/Inform.html' %}" class="detail-button" style="color: #000;">상세 눈똑보기</a>
+                    <a href="/InformPage/Inform" class="detail-button" style="color: #000;">상세 눈똑보기</a>
                     <a href="#" class="add-button" style="color: #000;">눈똑 들이기</a>
                 </div>
                 </div>
@@ -69,7 +72,7 @@
                         </button></div>
                     <p class="spot">휴양지 느낌의 감성 분위기 캠핑 스팟</p>
                     <div class="buttons">
-                        <a href="{% url '/InformPage/Inform.html' %}" class="detail-button" style="color: #000;">상세 눈똑보기</a>
+                        <a href="/InformPage/Inform" class="detail-button" style="color: #000;">상세 눈똑보기</a>
                     <a href="#" class="add-button" style="color: #000;">눈똑 들이기</a>
                     </div>
                 </div>
@@ -122,7 +125,7 @@
                     </div>
                       <p class="spot">강릉</p>
                       <div class="buttons">
-                        <a href="{% url '/InformPage/Inform.html' %}" class="detail-button" style="color: #000;">상세 눈똑보기</a>
+                        <a href="/InformPage/Inform" class="detail-button" style="color: #000;">상세 눈똑보기</a>
                         <a href="#" class="add-button" style="color: #000;">눈똑 들이기</a>
                     </div>
                     </div>
@@ -135,7 +138,7 @@
                         </button></div>
                       <p class="spot">휴양지 느낌의 감성 분위기 캠핑 스팟</p>
                       <div class="buttons">
-                        <a href="{% url '/InformPage/Inform.html' %}" class="detail-button" style="color: #000;">상세 눈똑보기</a>
+                        <a href="/InformPage/Inform" class="detail-button" style="color: #000;">상세 눈똑보기</a>
                         <a href="#" class="add-button" style="color: #000;">눈똑 들이기</a>
                     </div>
                     </div>
@@ -148,7 +151,7 @@
                             </button></div>
                         <p class="spot">휴양지 느낌의 감성 분위기 캠핑 스팟</p>
                         <div class="buttons">
-                            <a href="{% url '/InformPage/Inform.html' %}" class="detail-button" style="color: #000;">상세 눈똑보기</a>
+                            <a href="/InformPage/Inform" class="detail-button" style="color: #000;">상세 눈똑보기</a>
                         <a href="#" class="add-button" style="color: #000;">눈똑 들이기</a>
                         </div>
                     </div>

@@ -53,7 +53,7 @@
                 <div class="picAndName">
                   <div class="imgContainer">
                     <img src="{{ post.image }}" alt="{% static 'img/image1.png' %}">
-                    <button class="noon-button" onclick="toggleHeart(this, {{ post.id }})">
+                    <button class="noon-button" onclick="toggleHeart(this)">
                         {% if post.is_liked %}
                         <span class="noon-number">{{ post.like_count }}</span>
                         <img src="{% static 'img/group 166.png' %}" class="noon-image">
