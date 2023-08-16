@@ -355,7 +355,7 @@ color: rgb(0, 0, 0);
   
   .picAndName {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   }
 
