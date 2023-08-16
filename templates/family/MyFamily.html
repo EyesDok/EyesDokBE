@@ -18,7 +18,7 @@
 
   // SDK 초기화 여부를 판단
   console.log(Kakao.isInitialized());
-  img = "{% static 'img/NoonDDock.jpg' %}"
+  var img = "{% static 'img/NoonDDock.jpg' %}"
   function kakaoShare() {
     Kakao.Link.sendDefault({
       objectType: 'feed',
