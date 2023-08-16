@@ -18,3 +18,6 @@ def create_family_view(request):
         family.users.add(request.user) # 현재 로그인한 사용자를 가족 그룹에 추가
         return redirect('family:myFamily')  # 가족 그룹 목록 페이지로 리다이렉트
     return render(request, 'family/Family.html')
+
+def chat_view(request):
+    return render(request, 'family/Chat.html')

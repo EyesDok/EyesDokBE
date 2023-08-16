@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block title %}눈똑들이다{% endblock%}
+{% block link %}
+  <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css"
+        href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kyobo+Handwriting 2022&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/Chat.css' %}">
+  <script type="text/javascript" src="script.js"></script>
+{% endblock %}
+{% block content %}
+<div class="titlecon">
+  <p class="maintitle">김해 김씨3대</p>
+  <p class="nickname">뉴지은스님</p>
+</div>
+
+<section class="sec">
+    
+   
+
+    <div id="comment-write1">
+        <div id="cuser1-container">
+            <img id="cuser1" src="{% static 'img/Ellipse 24.png' %}">
+        </div>
+        <div id="text-image-container">
+            <div id="ctext2">
+                아빠님이 인왕선 제 3둘레길 눈똑을 추가하였습니다.
+            </div>
+            <img src="{% static 'img/Rectangle 41.png' %}" id="rectangle-image">
+        </div>
+    </div>
+    
+    
+    <div id="comment-write1">
+        <div id="cuser1-container">
+            <img id="cuser1" src="{% static 'img/Ellipse 24.png' %}">
+        </div>
+        <div id="text-image-container">
+            <div id="ctext3">
+                울할무님이 2023 변진섭 전구투어 콘서트 :변천사 <br>
+- 순 눈똑을 추가하였습니다.
+            </div>
+            <img src="{% static 'img/Rectangle 43.png' %}" id="rectangle-image">
+        </div>
+    </div>
+
+    <div class="comment-write1">
+        <div id="text-image-container">
+            <div class="ctext2">
+                2023 성시경 with friends［자, 오늘은］
+            </div>
+            <img src="{% static 'img/Rectangle 42.png' %}" id="rectangle-image">
+        </div>
+        <div id="cuser1-container">
+            <img class="cuser1" src="{% static 'img/Ellipse 24.png' %}">
+        </div>
+    </div>
+
+    <div class="bottom-line"></div>
+  
+   
+</section>
+
+<section class="sec2">
+  <div class="input-row">
+    <input type="text" id="user-input" placeholder="해당 게시물과 회원님의 생각을 공유해주세요">
+    <button id="send-button">등록</button>
+  </div>
+</section>
+{% endblock %}

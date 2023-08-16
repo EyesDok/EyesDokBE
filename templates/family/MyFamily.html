@@ -65,11 +65,19 @@
         <a href="{% url 'family:createFamily'%}"><div class="make"><img src="{% static 'img/Group 493.png' %}">&nbsp;눈똑방 만들기</div></a>
     </div>
     </div>
+    <a href = "{% url 'family:chat' %}">
+    <div id="comment-write">
+      <div id="square"><p class="squarename">우리 가족</p>
+      <div id="star"><img src="{% static 'img/noon.png' %}">21</div></div>
+    </div>
+  </a>
     {% for family in families %}
+    <a href = "{% url 'family:chat' %}">
     <div id="comment-write">
         <div id="square"><p class="squarename">{{family.familyname}}</p>
-        <div id="star"><img src="{% static 'img/noon.png' %}">65</div></div>
+        <div id="star"><img src="{% static 'img/noon.png' %}">0</div></div>
     </div>
+  </a>
     {% endfor %}
 
 </section>
