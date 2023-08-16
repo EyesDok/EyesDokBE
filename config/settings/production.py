@@ -5,7 +5,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [ # 도메인, IP
     '15.164.228.179',
-    '.noonddock.site',
+    'noonddock.site',
     ] 
 
 # Database
