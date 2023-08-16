@@ -130,9 +130,16 @@
                
                 <div id="buttons-container">
 
-                    <button class="custom-button1" id="button1">눈똑들이기</button>
-                    <a href="/NoonDDockListPage/list.html">
-                    <button class="custom-button1" id="button2">목록으로 가기</button>
+                    <a href="{% url 'noonddockApp:noonddock' %}" class="custom-button1" id="button1">
+                        눈똑들이기
+                        <button class="custom-button1"></button>
+                    </a>
+                    <button class="custom-button1" id="button2" onclick="goBack()">목록으로 가기</button>
+                        <script>
+                            function goBack() {
+                                window.history.back();
+                            }
+                        </script>
                     </a>
                 </div>
                

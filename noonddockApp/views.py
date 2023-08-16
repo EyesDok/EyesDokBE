@@ -94,7 +94,17 @@ def main(request):
 
 #눈똑 페이지
 def noonddock(request):
-    return render(request, 'NoonDDockPage/NoonDDock.html')
+    post_list = Post.objects.all().order_by('-pub_date')[:4]
+
+    if request.user.is_authenticated:
+        user_liked = Like.objects.filter(user=request.user)
+        for post in post_list:
+            post.is_liked = user_liked.filter(post=post).exists()
+
+    context = {
+        'post_list' : post_list,
+    }
+    return render(request, 'NoonDDockPage/NoonDDock.html', context)
 
 #나의 눈똑 페이지
 def my_noonddock(request):
