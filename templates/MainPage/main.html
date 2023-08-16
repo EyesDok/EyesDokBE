@@ -28,6 +28,7 @@
             <div class="center-section">
             <div class="picAndNameContainer">
     {% for post in post_list %}
+      {% if post.category == 0 or post.category == 1 %}
         <div class="postContainer">
             <div class="imgContainer">
                 {% if post.image %}
@@ -38,6 +39,7 @@
             </div>
             <p class="musical">{{ post.title }}</p>
         </div>
+        {% endif %}
     {% endfor %}
 </div>
 
@@ -53,24 +55,21 @@
             </div>
         </div>
 
-                <div class="picAndNameContainer">
-                    <div class="picAndName">
-                      <div class="imgContainer"><img src="{% static 'img/fishing1.png' %}" alt=""></div>
-                      <p class="name">인천광역시 옹진군 영흥면 내리 8-213</p>
-                    </div>
-                    <div class="picAndName">
-                      <div class="imgContainer"><img src="{% static 'img/fishing2.png' %}" alt=""></div>
-                      <p class="name">인천광역시 옹진군 영흥면 내리 8-213</p>
-                    </div>
-                    <div class="picAndName">
-                        <div class="imgContainer"><img src="{% static 'img/fishing3.png' %}" alt=""></div>
-                        <p class="name">인천광역시 옹진군 영흥면 내리 8-213</p>
-                      </div>
-                      <div class="picAndName">
-                        <div class="imgContainer"><img src="{% static 'img/fishing4.png' %}" alt=""></div>
-                        <p class="name">인천광역시 옹진군 영흥면 내리 8-213</p>
-                      </div>
+        <div class="picAndNameContainer">
+          {% for post in post_list %}
+            {% if post.category == 2 or post.category == 3 %}
+              <div class="postContainer">
+                  <div class="imgContainer">
+                      {% if post.image %}
+                      <img src="{{ post.image.url }}" alt="">
+                      {% else %}
+                      <img src="http://via.placeholder.com/300x300">
+                      {% endif %}
                   </div>
+                  <p class="musical">{{ post.title }}</p>
+              </div>
+              {% endif %}
+          {% endfor %}
             </div>
             
       
