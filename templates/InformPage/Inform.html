@@ -25,39 +25,51 @@
         
 
     <section class="gallery">
+        
+
         <div class="center-section">
             <div class="picAndNameContainer">
                 <div class="picAndName">
                     <div class="imgContainer">
-                        <img src="{{ post.image.url }}" alt="">           
+                        {% if post.images.exists %}
+                            <img src="{{ post.images.all.0.image.url }}" alt="">
+                        {% else %}
+                            <img src="http://via.placeholder.com/300x300">
+                        {% endif %}
                     </div>
-                </div>
-                <div class="picAndName">
                     <p class="spot">위치</p>
                     <p class="infor">{{ post.location }}</p>
-                </div>
-                <div class="picAndName1">
-                    <p class="spot">눈똑 수</p>
-                    <p class="infor1">{{ post.like_count }}</p>
-                </div>
-            </div>
-            <div class="picAndNameContainer">
-                <div class="picAndName">
                     <p class="spot">한줄 눈똑</p>
                     <p class="infor">{{ post.summary }}</p>
                 </div>
                 <div class="picAndName">
+                    <div class="imgContainer">
+                        {% if post.images.exists %}
+                            <img src="{{ post.images.all.1.image.url }}" alt="">
+                        {% else %}
+                            <img src="http://via.placeholder.com/300x300">
+                        {% endif %}
+                    </div>
                     <p class="spot">주차</p>
                     <p class="infor">{{ post.parking }}</p>
-                </div>
-                <div class="picAndName1">
                     <p class="spot">예약</p>
                     <p class="infor">{{ post.reservation }}</p>
                 </div>
+                <div class="picAndName1">
+                    <div class="imgContainer">
+                        {% if post.images.exists %}
+                            <img src="{{ post.images.all.2.image.url }}" alt="">
+                        {% else %}
+                            <img src="http://via.placeholder.com/300x300">
+                        {% endif %}
+                    </div>
+                    <p class="spot">눈똑 수</p>
+                    <p class="infor1">{{ post.like_count }}</p>
+                </div>
             </div>
+            
         </div>
     </section>
-    
 </section>
         <section class="chat">
                 <div id="comment">실시간 눈똑 근황</div>

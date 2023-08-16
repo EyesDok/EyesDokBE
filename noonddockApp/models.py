@@ -19,6 +19,15 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    
+class Image(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='images')  # 'images'는 역참조 이름
+    image = models.ImageField(upload_to='postImages/')
+
+
+
+    def __str__(self):
+        return f"Image for {self.post.title}"
 
 class Like(models.Model):
     user        =   models.ForeignKey(CustomUser, on_delete=models.CASCADE) #UserFK
