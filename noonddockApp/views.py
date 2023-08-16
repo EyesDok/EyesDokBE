@@ -4,8 +4,6 @@ from noonddockApp.models import Post, Like
 from django.http import JsonResponse
 
 # Create your views here.
-def main(request):
-    return render(request, 'main.html')
 
 #눈똑 게시글 리스트
 def post_list_view(request):
