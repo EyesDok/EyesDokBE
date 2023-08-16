@@ -24,27 +24,26 @@
                 <div class="custom-button">연극</div>
             </div>
         </div>
-
-            <div class="center-section">
-            <div class="picAndNameContainer">
+<div class="center-section">
+  <div class="picAndNameContainer">
     {% for post in post_list %}
       {% if post.category == 0 or post.category == 1 %}
       <a href="{% url 'noonddockApp:inform' post_id=post.id %}">
-        <div class="postContainer">
-            <div class="imgContainer">
-                {% if post.image %}
-                <img src="{{ post.image.url }}" alt="">
-                {% else %}
-                <img src="http://via.placeholder.com/300x300">
-                {% endif %}
-            </div>
-            <p class="musical">{{ post.title }}</p>
+      <div class="picAndName">
+        <div class="imgContainer">
+          {% if post.image %}
+            <img src="{{ post.image.url }}" alt="">
+          {% else %}
+            <img src="http://via.placeholder.com/300x300">
+          {% endif %}
         </div>
-      </a>
-        {% endif %}
+        <p class="musical">{{ post.title }}</p>
+      </div>
+    </a>
+    {% endif %}
     {% endfor %}
-</div>
-
+    </div>
+  </div>
         </section>
 
 
@@ -57,25 +56,26 @@
             </div>
         </div>
 
-        <div class="picAndNameContainer">
-          {% for post in post_list %}
-            {% if post.category == 2 or post.category == 3 %}
-            <a href="{% url 'noonddockApp:inform' post_id=post.id %}">
-              <div class="postContainer">
-                  <div class="imgContainer">
-                      {% if post.image %}
-                      <img src="{{ post.image.url }}" alt="">
-                      {% else %}
-                      <img src="http://via.placeholder.com/300x300">
-                      {% endif %}
-                  </div>
-                  <p class="musical">{{ post.title }}</p>
+        <div class="center-section">
+          <div class="picAndNameContainer">
+            {% for post in post_list %}
+              {% if post.category == 2 or post.category == 3 %}
+              <a href="{% url 'noonddockApp:inform' post_id=post.id %}">
+              <div class="picAndName">
+                <div class="imgContainer">
+                  {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="">
+                  {% else %}
+                    <img src="http://via.placeholder.com/300x300">
+                  {% endif %}
+                </div>
+                <p class="name">{{ post.title }}</p>
               </div>
-              {% endif %}
-          {% endfor %}
             </a>
+            {% endif %}
+            {% endfor %}
             </div>
-            
+          </div>
       
         </section>
         
