@@ -12,7 +12,7 @@ urlpatterns = [
     path('', main, name='main'), #메인 페이지
     path('noonddock', noonddock, name='noonddock'), #눈똑 페이지
     path('my_noonddock', my_noonddock, name='my_noonddock'), #나의 눈똑 페이지
-    path('liked_post/<int:post_id>/', liked_post, name="liked_post"),
+    path('liked_post/<int:post_id>', liked_post, name="liked_post"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

@@ -53,15 +53,20 @@
                 <div class="picAndName">
                   <div class="imgContainer">
                     <img src="{{ post.image }}" alt="{% static 'img/image1.png' %}">
-                    <button class="noon-button" onclick="toggleHeart(this)">
-                        {% if post.is_liked %}
-                        <span class="noon-number">{{ post.like_count }}</span>
-                        <img src="{% static 'img/group 166.png' %}" class="noon-image">
+                    <form action="{% url 'noonddockApp:liked_post' post.pk %}" method='POST'>
+                        {% csrf_token %}
+                        {% if user in like.user.all %}
+                            <button class="noon-button" onclick="toggleHeart(this)" type="submit">
+                                <span class="noon-number">{{ post.like_count }}</span>
+                                <img src="{% static 'img/group 166.png' %}" class="noon-image">
+                            </button>
                         {% else %}
-                        <span class="noon-number">{{ post.like_count }}</span>
-                        <img src="{% static 'img/group 166.png' %}" class="noon-image">
+                            <button class="noon-button" onclick="toggleHeart(this)" type="submit">
+                                <span class="noon-number">{{ post.like_count }}</span>
+                                <img src="{% static 'img/group 166.png' %}" class="noon-image">
+                            </button>
                         {% endif %}
-                    </button>
+                    </form>
                 </div>
                   <p class="spot">{{ post.title }}</p>
                   <div class="buttons">

@@ -36,34 +36,27 @@ def post_list_view(request):
 
 
 #좋아요 기능=눈똑수
+@login_required
 def liked_post(request, id):
     if request.user.is_authenticated:
         post = get_object_or_404(post, id=id)
         user = request.user
 
-    # 이미 좋아요를 눌렀는지 확인
-        if Like.objects.filter(user=user, post=post).exists():
-            # 이미 좋아요를 눌렀을 경우 처리
-            like = Like.objects.get(user=user, post=post)
-            like.delete()
-            # 좋아요 개수를 1 증가시킴
-            post.like -= 1
-            post.like()
-
+        if request.user in post.like_users.all():
+            post.like_users.remove(request.user)
+            post.like_count -= 1
         else:
-            # 중개 모델을 생성하고 저장
-            like = Like(user=user, post=post)
-            like.save()
-
-            # 좋아요 개수를 1 증가시킴
+            post.like_users.add(request.user)
             post.like_count += 1
-            post.save()
+
+        post.save()
 
         return redirect('NoonDDocklistPage/post_list.html')
-        
-    return redirect('accouts/login.html')
 
-#js 토글 관련
+    return redirect('accouts/login.html')
+    
+
+#js 토글 관련, js 잘 몰라서 그냥 냅두는 중
 def toggle_like(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     user = request.user
@@ -79,18 +72,8 @@ def toggle_like(request, post_id):
 
 #눈똑 상세 페이지
 def post_inform(request, post_id):
-    post = get_object_or_404(Question, pk=post_id)
-    category = question.category
-    question.views += 1
-    question.like()
     
-    sameCategory = Question.objects.filter(category=category).exclude(pk=question_id).order_by("?")[:5]
-
-    context = {
-        'question': question,
-        'sameCategory': sameCategory,
-    }
-    return render(request, 'communicationApp/question-detail.html', context)
+    return render(request, 'InformPage/Inform.html', context)
 
 #메인 페이지
 def main(request):
