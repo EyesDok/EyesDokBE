@@ -77,7 +77,17 @@ def post_inform(request, post_id):
 
 #메인 페이지
 def main(request):
-    return render(request, 'MainPage/main.html')
+    post_list = Post.objects.all()
+
+    if request.user.is_authenticated:
+        user_liked = Like.objects.filter(user=request.user)
+        for post in post_list:
+            post.is_liked = user_liked.filter(post=post).exists()
+
+    context = {
+        'post_list' : post_list,
+    }
+    return render(request, 'MainPage/main.html', context)
 
 #눈똑 페이지
 def noonddock(request):
