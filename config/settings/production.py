@@ -3,7 +3,7 @@ from .base import *
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['noonddock.site'] 
+ALLOWED_HOSTS = ['15.164.228.179'] 
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
