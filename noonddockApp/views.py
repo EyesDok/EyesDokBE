@@ -9,7 +9,7 @@ from django.http import JsonResponse
 def post_list_view(request):
 
     #추천수 기준 내림차순 정렬 상위 4개 게시물
-    post_title_list = Post.objects.all().order_by('-like')[:12]
+    post_list = Post.objects.all().order_by('-like')[:12]
     
     #게시글 작성일 기준 내림차순 정렬 (선택)'최신순'
     if request.GET.get('order') == 'recent':        
@@ -17,7 +17,7 @@ def post_list_view(request):
 
     #게스글 추천수 기준 내림차순 정렬 (선택) '인기순'
     elif request.GET.get('order') == 'popular':
-        post_list = Post.objects.all().order_by('-like')
+        post_list = Post.objects.all().order_by('-like_count')
         
     else:
         post_list = Post.objects.all()
@@ -27,7 +27,6 @@ def post_list_view(request):
 
     context ={
             'post_list': post_list,
-            'post_title_list' : post_title_list,
         }
     
     return render(request, 'NoonDDocklistPage/post_list.html', context)

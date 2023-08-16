@@ -53,3 +53,4 @@ class Comment(models.Model):
     created_at = models.DateTimeField(verbose_name='작성일', auto_now_add=True)
     post = models.ForeignKey(to='Post', on_delete=models.CASCADE)
     writer = models.ForeignKey(to=CustomUser, on_delete=models.CASCADE, null=True, blank=True)
+
