@@ -60,6 +60,7 @@
         <div class="picAndNameContainer">
           {% for post in post_list %}
             {% if post.category == 2 or post.category == 3 %}
+            <a href="{% url 'noonddockApp:inform' post_id=post.id %}">
               <div class="postContainer">
                   <div class="imgContainer">
                       {% if post.image %}
@@ -72,6 +73,7 @@
               </div>
               {% endif %}
           {% endfor %}
+            </a>
             </div>
             
       
