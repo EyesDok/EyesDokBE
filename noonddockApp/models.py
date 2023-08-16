@@ -11,9 +11,9 @@ class Post(models.Model):
     like_count  =   models.PositiveIntegerField("LIKE_COUNT", default=0) #좋아요 수
     category    =   models.IntegerField(verbose_name='테마',blank=True, null=True)
     location    =   models.TextField("LOCATION", max_length=300, default="위치") # 위치
-    parking    =   models.TextField("PARKING", max_length=300, default="주차")  # 주차
-    summary    =   models.TextField("SUMMARY", max_length=300, default="한줄 눈똑") # 한줄 눈똑
-    reservation    =   models.TextField("RESERVATION", max_length=300, default="예약") # 예약
+    parking     =   models.TextField("PARKING", max_length=300, default="주차")  # 주차
+    summary     =   models.TextField("SUMMARY", max_length=300, default="한줄 눈똑") # 한줄 눈똑
+    reservation =   models.TextField("RESERVATION", max_length=300, default="예약") # 예약
     class Meta:
         db_table = 'post'
 
