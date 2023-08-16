@@ -4,8 +4,8 @@ from .base import *
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '.ap-northeast-2.compute.amazonaws.com',
     'noonddock.site',
+    'www.noonddock.site',
 ] 
 
 # Database
