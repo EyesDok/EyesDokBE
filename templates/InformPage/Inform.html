@@ -76,58 +76,57 @@
         
                 <div id="comment-write">
                     <img id="cuser1" src="{% static 'img/user2.png' %}">
+                    <span>{{user.username}}</span>
                     <textarea placeholder="해당 게시물에 대한 00님의 생각을 적어주세요."></textarea>
                     <div id="cbtn1">등록</div>
                 </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                        const commentBtn = document.getElementById("cbtn1");
+                        const commentTextarea = document.getElementById("comment-textarea");
+                    
+                        commentBtn.addEventListener("click", () => {
+                            const content = commentTextarea.value;
+                    
+                            if (content.trim() === "") {
+                                alert("댓글 내용을 입력하세요.");
+                                return;
+                            }
+                    
+                            // AJAX 요청을 보내고 서버에서 댓글을 추가하도록 처리
+                            // 아래 코드에서 url을 실제 댓글 추가 URL로 변경해야 합니다.
+                            fetch("/your-comment-add-url/", {
+                                method: "POST",
+                                headers: {
+                                    "X-CSRFToken": "{{ csrf_token }}",
+                                    "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify({ content: content }),
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                // 처리 완료 후, 페이지 리로드 또는 동적으로 댓글 표시 처리
+                                location.reload(); // 이 부분을 원하는 처리 방식으로 변경할 수 있습니다.
+                            })
+                            .catch(error => {
+                                console.error("Error:", error);
+                            });
+                        });
+                    });
+                    </script>
                 
-        
+                {% for comment in comments %}
                 <div id="comment-write1">
                     <img id="cuser1" src="{% static 'img/user2.png' %}">
+                    <span>{{ comment.writer.username }}</span>
                     <div id="text-container">
                         <div id="ctext2">
-                            낚시 좋아하는 울 아빠 카톡으로 링크 보내드렸더니 보시구는 바로 다녀오셨어요^^ 
-                            고기가 많아서 좋긴한데 이미 유명한 낚시 포인트라 사람이 좀 많았다구는 하시더라구요.
+                            {{ comment.content }}
                         </div>
                     </div>
                 </div>
-                
-                <div id="comment-write1">
-                    <img id="cuser1" src="{% static 'img/user2.png' %}">
-                    <div id="text-container1">
-                        <div id="ctext2">
-                            인천 주민인데, 여기 진짜 낚시 포인트에요!! 주변에 횟집도 많아서 바로 식사하기에도 좋아요
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
 
-                <div id="comment-write1">
-                    <img id="cuser1" src="{% static 'img/user2.png' %}">
-                    <div id="text-container1">
-                        <div id="ctext2">
-                            개인적으로는 사람이 너무 많아서 별로였습니다 ㅜㅜ
-                        </div>
-                    </div>
-                </div>
-
-                <div id="comment-write1">
-                    <img id="cuser1" src="{% static 'img/user2.png' %}">
-                    <div id="text-container">
-                        <div id="ctext2">
-                            낚시 좋아하는 울 아빠한테 알려드렸더니 차로 30분거리라고, 바로 다녀오시더라구요~ 
-이런 정보 앞으로도 많이 얻어갔으면 좋겠습니다~~
-                        </div>
-                    </div>
-                </div>
-               
-                <div id="comment-write1">
-                    <img id="cuser1" src="{% static 'img/user2.png' %}">
-                    <div id="text-container1">
-                        <div id="ctext2">
-                            근처에 횟집도 많고 바다 뷰도 은근 좋아요~! 낚시 포인트로 추천합니다.
-                        </div>
-                    </div>
-                </div>
-               
                 <div id="buttons-container">
 
                     <a href="{% url 'noonddockApp:noonddock' %}" class="custom-button1" id="button1">

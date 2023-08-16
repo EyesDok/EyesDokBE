@@ -46,3 +46,10 @@ class Like(models.Model):
 
     def __str__(self):
         return f"{self.user.username} likes {self.post.title}"
+
+
+class Comment(models.Model):
+    content = models.TextField(verbose_name='내용')
+    created_at = models.DateTimeField(verbose_name='작성일', auto_now_add=True)
+    post = models.ForeignKey(to='Post', on_delete=models.CASCADE)
+    writer = models.ForeignKey(to=CustomUser, on_delete=models.CASCADE, null=True, blank=True)
