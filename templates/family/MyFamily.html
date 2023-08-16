@@ -18,15 +18,13 @@
 
   // SDK 초기화 여부를 판단
   console.log(Kakao.isInitialized());
-
-  user = users.username + '님 에게서 초대가 왔어요'
   img = "{% static 'img/NoonDDock.jpg' %}"
   function kakaoShare() {
     Kakao.Link.sendDefault({
       objectType: 'feed',
       content: {
         title: '눈똑 ',
-        description: user,
+        description: "저와 함께 눈똑해요!",
         imageUrl: img,
         link: {
           webUrl: 'http://noonddock.site/accounts/login',
