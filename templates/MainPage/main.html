@@ -26,21 +26,21 @@
         </div>
 
             <div class="center-section">
-              <div class="picAndNameContainer">
-                {% for post in post_list %}
-                    <div class="postContainer">
-                        <div class="imgContainer">
-                            {% if post.image %}
-                            <img src="{{ post.image.url }}" alt="">
-                            {% else %}
-                            <img src="http://via.placeholder.com/300x300">
-                            {% endif %}
-                        </div>
-                        <p class="musical">{{ post.title }} <사칠></p>
-                    </div>
-                {% endfor %}
+            <div class="picAndNameContainer">
+    {% for post in post_list %}
+        <div class="postContainer">
+            <div class="imgContainer">
+                {% if post.image %}
+                <img src="{{ post.image.url }}" alt="">
+                {% else %}
+                <img src="http://via.placeholder.com/300x300">
+                {% endif %}
             </div>
-            
+            <p class="musical">{{ post.title }}</p>
+        </div>
+    {% endfor %}
+</div>
+
         </section>
 
 

@@ -9,6 +9,7 @@ class Post(models.Model):
     user        =   models.ForeignKey(CustomUser, on_delete=models.CASCADE) #UserFK
     like_users  =   models.ManyToManyField(CustomUser, related_name='like_posts', blank=True) #게시물과 사용자 다대다 관계 구성
     like_count  =   models.PositiveIntegerField("LIKE_COUNT", default=0) #좋아요 수
+    category    =   models.IntegerField(verbose_name='테마',blank=True, null=True)
     class Meta:
         db_table = 'post'
 
