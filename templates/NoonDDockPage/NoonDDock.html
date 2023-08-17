@@ -44,55 +44,28 @@
                             {% else %}
                             <img src="http://via.placeholder.com/300x300">
                             {% endif %}
-                            <button class="noon-button {% if post.liked_posts %}active{% endif %}" onclick="toggleHeart(this); return false;" data-post-id="{{ post.id }}" data-liked="{{ post.is_liked }}">
+                            <button class="noon-button" onclick="toggleHeart(this)">
                                 <span class="noon-number">{{ post.like_count }}</span>
                                 <img src="{% static 'img/group 166.png' %}" class="noon-image">
                             </button>
                             
                              
                             <script>
-                                function toggleHeart(button) {
-                                    var postId = button.getAttribute('data-post-id');
-                                    var isLiked = button.getAttribute('data-liked') === 'true';
-
-                                    if (isLiked) {
+                                function toggleHeart(button, postId) {
+                                    // 버튼의 클래스에 'active'가 포함되어 있는지 확인
+                                    if (button.classList.contains('active')) {
+                                        // 'active' 클래스가 있을 경우, 숫자를 감소시키고 클래스 제거
                                         button.classList.remove('active');
                                         var likeNumberElement = button.querySelector('.noon-number');
                                         likeNumberElement.textContent = parseInt(likeNumberElement.textContent) - 1;
-                                        updateLike(postId, 'remove', button);
                                     } else {
+                                        // 'active' 클래스가 없을 경우, 숫자를 증가시키고 클래스 추가
                                         button.classList.add('active');
                                         var likeNumberElement = button.querySelector('.noon-number');
                                         likeNumberElement.textContent = parseInt(likeNumberElement.textContent) + 1;
-                                        updateLike(postId, 'add', button);
                                     }
-
-                                    // 좋아요 상태 업데이트
-                                    button.setAttribute('data-liked', isLiked ? 'false' : 'true');
                                 }
-
-
-                                function updateLike(postId, action, button) {
-                                    var url = "{% url 'noonddockApp:update_like_count' %}";
-                                    url += '?post_id=' + postId + '&action=' + action;
-
-                                    fetch(url)
-                                        .then(response => {
-                                            if (response.status !== 200) {
-                                                console.log('Error:', response.status);
-                                            } else {
-                                                // 좋아요 상태 업데이트
-                                                var isLiked = button.getAttribute('data-liked') === 'true';
-                                                button.setAttribute('data-liked', isLiked ? 'false' : 'true');
-                                            }
-                                        })
-                                        .catch(error => {
-                                            console.error('Fetch Error:', error);
-                                        });
-                                }
-
-
-                              </script>   
+                            </script>   
                         </div>
                     <p class="spot">{{ post.title }}</p>
                     <div class="buttons">

@@ -65,8 +65,9 @@
 
             <div class="center-section">
                 {% for post in post_list %}
-               
-                <div class="pnc">
+                    {% if forloop.counter0|divisibleby:3 %}
+                        <div class="pnc">
+                    {% endif %}
                     <div class="picAndNameContainer">
                         <a href="{% url 'noonddockApp:inform' post_id=post.id %}">
                             <div class="picAndName">
@@ -98,7 +99,7 @@
                                             }
                                         }
                                     </script>   
-                              
+                                </div>
                             </div>
                             <p class="spot">{{ post.title }}</p>
                             <div class="buttons">
@@ -107,12 +108,11 @@
                             </div>
                         </a>
                     </div>
-                    {% endfor %}
-                </div>
-              </div>
-           
-    
-
+                    {% if forloop.counter0|divisibleby:3 or forloop.last %} {# 가로줄 종료 조건: 3의 배수이거나 마지막 게시물인 경우 종료 #}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
     </section>
 {% endblock %}
 
