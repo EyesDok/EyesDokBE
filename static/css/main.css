@@ -183,13 +183,13 @@ line-height: normal;
 
   .logo1 {
     position: absolute;
-    top: 48%;
+    top: 38%;
     left: 10vw;
     transform: translateY(-50%);
     text-align: center;
     color: #FFF;
     font-family: SUIT;
-    font-size: 60px;
+    font-size: 4vw;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -198,13 +198,13 @@ line-height: normal;
   
   .logo2 {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 10vw;
     transform: translateY(-50%);
     text-align: center;
     color: #FFF;
     font-family: SUIT;
-    font-size: 60px;
+    font-size: 4vw;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -322,9 +322,19 @@ display:block;
 display: flex;
 flex-direction: column;
 align-items: flex-start;
-padding-top: 94px;
+padding-top: 4vh;
 text-align: left;
 }
+
+.titlebutton1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 10vh;
+  text-align: left;
+  }
+
+
 
 .galleryTitle {
 font-family: SUIT;
@@ -366,10 +376,11 @@ color: rgb(0, 0, 0);
 
 
 .picAndNameContainer {
-  margin-top:59px;
+  margin-top:2vw;
   display: flex;
   justify-content: center;
-  gap: 36px; 
+  gap: 3vw; 
+  margin-left:3vw;
   }
   
   .picAndName {
