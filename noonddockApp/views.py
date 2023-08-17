@@ -188,7 +188,6 @@ def update_like_count(request):
 def comment_create(request):
     # POST 요청 시
     if request.method == 'POST':
-        username = request.POST.get('username')
         email = request.POST.get('email')
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')

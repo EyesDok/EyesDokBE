@@ -64,51 +64,53 @@
         </div>
 
             <div class="center-section">
-                <div class="picAndNameContainer">
-                    {% for post in post_list %}
-                    <a href="{% url 'noonddockApp:inform' post_id=post.id %}">
-                        <div class="picAndName">
-                            <div class="imgContainer">
-                                {% if post.image %}
-                                <img src="{{ post.image.url }}" alt="">
-                                {% else %}
-                                <img src="http://via.placeholder.com/300x300">
-                                {% endif %}
-                                <button class="noon-button" onclick="toggleHeart(this)" data-post-id="{{ post.id }}" data-liked="{{ post.like_count }}">
-    
-                                    <span class="noon-number">{{ post.like_count }}</span>
-                                    <img src="{% static 'img/group 166.png' %}" class="noon-image">
+                {% for post in post_list %}
+               
+                <div class="pnc">
+                    <div class="picAndNameContainer">
+                        <a href="{% url 'noonddockApp:inform' post_id=post.id %}">
+                            <div class="picAndName">
+                                <div class="imgContainer">
+                                    {% if post.image %}
+                                    <img src="{{ post.image.url }}" alt="">
+                                    {% else %}
+                                    <img src="http://via.placeholder.com/300x300">
+                                    {% endif %}
+                                    <button class="noon-button" onclick="toggleHeart(this)" data-post-id="{{ post.id }}" data-liked="{{ post.is_liked }}">
+        
+                                        <span class="noon-number">{{ post.like_count }}</span>
+                                        <img src="{% static 'img/group 166.png' %}" class="noon-image">
                                         
-                                </button> 
-                                <script>
-                                    function toggleHeart(button, postId) {
-                                        // 버튼의 클래스에 'active'가 포함되어 있는지 확인
-                                        if (button.classList.contains('active')) {
-                                            // 'active' 클래스가 있을 경우, 숫자를 감소시키고 클래스 제거
-                                            button.classList.remove('active');
-                                            var likeNumberElement = button.querySelector('.noon-number');
-                                            likeNumberElement.textContent = parseInt(likeNumberElement.textContent) - 1;
-                                        } else {
-                                            // 'active' 클래스가 없을 경우, 숫자를 증가시키고 클래스 추가
-                                            button.classList.add('active');
-                                            var likeNumberElement = button.querySelector('.noon-number');
-                                            likeNumberElement.textContent = parseInt(likeNumberElement.textContent) + 1;
+                                    </button> 
+                                    <script>
+                                        function toggleHeart(button, postId) {
+                                            // 버튼의 클래스에 'active'가 포함되어 있는지 확인
+                                            if (button.classList.contains('active')) {
+                                                // 'active' 클래스가 있을 경우, 숫자를 감소시키고 클래스 제거
+                                                button.classList.remove('active');
+                                                var likeNumberElement = button.querySelector('.noon-number');
+                                                likeNumberElement.textContent = parseInt(likeNumberElement.textContent) - 1;
+                                            } else {
+                                                // 'active' 클래스가 없을 경우, 숫자를 증가시키고 클래스 추가
+                                                button.classList.add('active');
+                                                var likeNumberElement = button.querySelector('.noon-number');
+                                                likeNumberElement.textContent = parseInt(likeNumberElement.textContent) + 1;
+                                            }
                                         }
-                                    }
-                                </script>   
+                                    </script>   
+                              
                             </div>
-                        </div>
                             <p class="spot">{{ post.title }}</p>
                             <div class="buttons">
                                 <a href="{% url 'noonddockApp:inform' post_id=post.id %}" class="detail-button" style="color: #000;">상세 눈똑보기</a>
                                 <a href="{% url 'noonddockApp:post_list_view'  %}" class="add-button" style="color: #000;">눈똑 들이기</a>
                             </div>
-                    </a>
+                        </a>
+                    </div>
                     {% endfor %}
                 </div>
-
               </div>
-            </div>
+           
     
 
     </section>
