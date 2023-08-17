@@ -129,8 +129,7 @@ def post_inform(request, post_id):
 
 #메인 페이지
 def main(request):
-    post_list = Post.objects.all()[:4]
-
+    post_list = Post.objects.all()
     if request.user.is_authenticated:
         user_liked = Like.objects.filter(user=request.user)
         for post in post_list:
