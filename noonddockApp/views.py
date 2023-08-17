@@ -123,7 +123,7 @@ def post_inform(request, post_id):
 
 #메인 페이지
 def main(request):
-    post_list = Post.objects.all()
+    post_list = Post.objects.all()[:4]
 
     if request.user.is_authenticated:
         user_liked = Like.objects.filter(user=request.user)
@@ -151,15 +151,36 @@ def noonddock(request):
 
 #나의 눈똑 페이지
 def my_noonddock(request):
-    try:
-        post = get_object_or_404(Post, id=post_id, like_users=user_id)
-        user_likes = post.like_users.all()
-    except Post.DoesNotExist:
-        user_likes = []
+    if not request.user.is_authenticated:
+        return render(request, 'accounts/login.html')  # 로그인 페이지로 이동 또는 처리
+
+    liked_posts = Post.objects.filter(like_users=request.user)
 
     context = {
-        'user_likes': user_likes,
+        'liked_posts': liked_posts,
     }
 
 
     return render(request, 'MyNoonDDockPage/my_noonddock.html', context)
+
+
+from django.http import JsonResponse
+
+def update_like_count(request):
+    if request.method == 'GET':
+        post_id = request.GET.get('post_id')
+        action = request.GET.get('action')
+
+        try:
+            post = Post.objects.get(id=post_id)
+            if action == 'add':
+                post.like_count += 1
+            elif action == 'remove':
+                post.like_count -= 1
+            post.save()
+            
+            return JsonResponse({'success': True})
+        except Post.DoesNotExist:
+            return JsonResponse({'success': False, 'error': 'Post not found'})
+    
+    return JsonResponse({'success': False, 'error': 'Invalid request'})

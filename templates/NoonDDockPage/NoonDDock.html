@@ -18,7 +18,7 @@
                         <span class="whitetext">는</span>
                     </div>
                     <div class="logo1">중장년층 및 시니어들을 위한 총 5가지의<br> 여가 분야 정보 및 경험을 찾고 우리 가족과 함께 공유해봐요</div>
-                    <button class="write-button">눈똑 작성하기</button>
+                    <!-- <button class="write-button">눈똑 작성하기</button> -->
                 </div>
             </div>
         </div>
@@ -42,28 +42,55 @@
                             {% else %}
                             <img src="http://via.placeholder.com/300x300">
                             {% endif %}
-                            <button class="noon-button" onclick="toggleHeart(this)">
-
+                            <button class="noon-button {% if post.liked_posts %}active{% endif %}" onclick="toggleHeart(this); return false;" data-post-id="{{ post.id }}" data-liked="{{ post.is_liked }}">
                                 <span class="noon-number">{{ post.like_count }}</span>
                                 <img src="{% static 'img/group 166.png' %}" class="noon-image">
-                                
-                            </button> 
+                            </button>
+                            
+                             
                             <script>
-                                function toggleHeart(button, postId) {
-                                    // 버튼의 클래스에 'active'가 포함되어 있는지 확인
-                                    if (button.classList.contains('active')) {
-                                        // 'active' 클래스가 있을 경우, 숫자를 감소시키고 클래스 제거
+                                function toggleHeart(button) {
+                                    var postId = button.getAttribute('data-post-id');
+                                    var isLiked = button.getAttribute('data-liked') === 'true';
+
+                                    if (isLiked) {
                                         button.classList.remove('active');
                                         var likeNumberElement = button.querySelector('.noon-number');
                                         likeNumberElement.textContent = parseInt(likeNumberElement.textContent) - 1;
+                                        updateLike(postId, 'remove', button);
                                     } else {
-                                        // 'active' 클래스가 없을 경우, 숫자를 증가시키고 클래스 추가
                                         button.classList.add('active');
                                         var likeNumberElement = button.querySelector('.noon-number');
                                         likeNumberElement.textContent = parseInt(likeNumberElement.textContent) + 1;
+                                        updateLike(postId, 'add', button);
                                     }
+
+                                    // 좋아요 상태 업데이트
+                                    button.setAttribute('data-liked', isLiked ? 'false' : 'true');
                                 }
-                            </script>   
+
+
+                                function updateLike(postId, action, button) {
+                                    var url = "{% url 'noonddockApp:update_like_count' %}";
+                                    url += '?post_id=' + postId + '&action=' + action;
+
+                                    fetch(url)
+                                        .then(response => {
+                                            if (response.status !== 200) {
+                                                console.log('Error:', response.status);
+                                            } else {
+                                                // 좋아요 상태 업데이트
+                                                var isLiked = button.getAttribute('data-liked') === 'true';
+                                                button.setAttribute('data-liked', isLiked ? 'false' : 'true');
+                                            }
+                                        })
+                                        .catch(error => {
+                                            console.error('Fetch Error:', error);
+                                        });
+                                }
+
+
+                              </script>   
                         </div>
                     <p class="spot">{{ post.title }}</p>
                     <div class="buttons">
@@ -127,49 +154,46 @@
                     <div class="galleryTitle">똑똑, {{ user.username }}님의 눈똑이 왔습니다 ></div>
                 {% endif %}
             </div>
-    
+
                 <div class="center-section">
                 <div class="picAndNameContainer">
+                {% for post in liked_posts %}
+                <a href="{% url 'noonddockApp:inform' post_id=post.id %}"></a>
                     <div class="picAndName">
                       <div class="imgContainer">
-                        <img src="{% static 'img/image1.png' %}" alt="">
+                        {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="게시물 이미지">
+                        {% else %}
+                        <img src="http://via.placeholder.com/300x300">
+                        {% endif %}
                         <button class="noon-button" onclick="toggleHeart(this)">
                             <span class="noon-number">151</span>
                             <img src="{% static 'img/group 166.png' %}" class="noon-image">
                         </button>
+                        <script>
+                            function toggleHeart(button, postId) {
+                                // 버튼의 클래스에 'active'가 포함되어 있는지 확인
+                                if (button.classList.contains('active')) {
+                                    // 'active' 클래스가 있을 경우, 숫자를 감소시키고 클래스 제거
+                                    button.classList.remove('active');
+                                    var likeNumberElement = button.querySelector('.noon-number');
+                                    likeNumberElement.textContent = parseInt(likeNumberElement.textContent) - 1;
+                                } else {
+                                    // 'active' 클래스가 없을 경우, 숫자를 증가시키고 클래스 추가
+                                    button.classList.add('active');
+                                    var likeNumberElement = button.querySelector('.noon-number');
+                                    likeNumberElement.textContent = parseInt(likeNumberElement.textContent) + 1;
+                                }
+                            }
+                          </script>
                     </div>
-                      <p class="spot">강릉</p>
+                      <p class="spot">{{ post.title }}</p>
                       <div class="buttons">
-                        <a href="/InformPage/Inform" class="detail-button" style="color: #000;">상세 눈똑보기</a>
-                        <a href="#" class="add-button" style="color: #000;">눈똑 들이기</a>
+                        <a href="{% url 'noonddockApp:inform' post_id=post.id %}" class="detail-button" style="color: #000;">상세 눈똑보기</a>
+                        <a href="{% url 'noonddockApp:post_list_view'  %}" class="add-button" style="color: #000;">눈똑 들이기</a>
                     </div>
-                    </div>
-                    <div class="picAndName">
-                      <div class="imgContainer">
-                        <img src="{% static 'img/image2.png' %}" alt="">
-                        <button class="noon-button" onclick="toggleHeart(this)">
-                            <span class="noon-number">151</span>
-                            <img src="{% static 'img/group 166.png' %}" class="noon-image">
-                        </button></div>
-                      <p class="spot">휴양지 느낌의 감성 분위기 캠핑 스팟</p>
-                      <div class="buttons">
-                        <a href="/InformPage/Inform" class="detail-button" style="color: #000;">상세 눈똑보기</a>
-                        <a href="#" class="add-button" style="color: #000;">눈똑 들이기</a>
-                    </div>
-                    </div>
-                    <div class="picAndName">
-                        <div class="imgContainer">
-                            <img src="{% static 'img/image3.png' %}" alt="">
-                            <button class="noon-button" onclick="toggleHeart(this)">
-                                <span class="noon-number">151</span>
-                                <img src="{% static 'img/group 166.png' %}" class="noon-image">
-                            </button></div>
-                        <p class="spot">휴양지 느낌의 감성 분위기 캠핑 스팟</p>
-                        <div class="buttons">
-                            <a href="/InformPage/Inform" class="detail-button" style="color: #000;">상세 눈똑보기</a>
-                        <a href="#" class="add-button" style="color: #000;">눈똑 들이기</a>
-                        </div>
-                    </div>
+                {% endfor %}
+                    
                   </div>
                 </div>
 {% endblock %}

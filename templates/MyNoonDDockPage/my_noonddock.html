@@ -27,30 +27,11 @@
                 <div class="picAndName">
                   <div class="imgContainer">
                     {% if post.image %}
-                    <img src="{{ post.image.url }}" alt="">
+                    <img src="{{ post.image.url }}" alt="게시물 이미지">
                     {% else %}
                     <img src="http://via.placeholder.com/300x300">
                     {% endif %}
-                    <button class="noon-button" onclick="toggleHeart(this)">
-                        <span class="noon-number">{{ post.like_count }}</span>
-                        <img src="{% static 'img/group 166.png' %}" class="noon-image">
-                    </button>
-                    <script>
-                      function toggleHeart(button, postId) {
-                          // 버튼의 클래스에 'active'가 포함되어 있는지 확인
-                          if (button.classList.contains('active')) {
-                              // 'active' 클래스가 있을 경우, 숫자를 감소시키고 클래스 제거
-                              button.classList.remove('active');
-                              var likeNumberElement = button.querySelector('.noon-number');
-                              likeNumberElement.textContent = parseInt(likeNumberElement.textContent) - 1;
-                          } else {
-                              // 'active' 클래스가 없을 경우, 숫자를 증가시키고 클래스 추가
-                              button.classList.add('active');
-                              var likeNumberElement = button.querySelector('.noon-number');
-                              likeNumberElement.textContent = parseInt(likeNumberElement.textContent) + 1;
-                          }
-                      }
-                    </script>
+                  
                 </div>
                   <p class="spot">{{ post.title }}</p>
                   <div class="buttons">
