@@ -137,7 +137,7 @@ def main(request):
 
 #눈똑 페이지
 def noonddock(request):
-    post_list = Post.objects.all().order_by('-pub_date')[:4]
+    post_list = Post.objects.all().order_by('-pub_date')[:3]
 
     if request.user.is_authenticated:
         user_liked = Like.objects.filter(user=request.user)
