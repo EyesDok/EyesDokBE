@@ -315,7 +315,7 @@ line-height: normal;
 }
 
 .picAndNameContainer {
-  margin-top: 5vh;
+  margin-top: 0vh;
   display: flex;
   justify-content: center;
   gap: 5vh;
@@ -446,6 +446,7 @@ flex-shrink: 0;
 }
 
 #divSelectors select{
+  width:20vw;
     flex-grow: 1;
     height: 7vh;
     border-radius: 12px;

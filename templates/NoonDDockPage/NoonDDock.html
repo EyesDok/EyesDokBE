@@ -31,9 +31,11 @@
             <div class="galleryTitle">오늘의 인기 눈똑</div>
         </div>
 
+        
             <div class="center-section">
-            <div class="picAndNameContainer">
                 {% for post in post_list %}
+            <div class="picAndNameContainer">
+                
                 <a href="{% url 'noonddockApp:inform' post_id=post.id %}"></a>
                     <div class="picAndName">
                         <div class="imgContainer">
@@ -97,26 +99,18 @@
                         <a href="{% url 'noonddockApp:inform' post_id=post.id %}" class="detail-button" style="color: #000;">상세 눈똑보기</a>
                         <a href="{% url 'noonddockApp:post_list_view'  %}" class="add-button" style="color: #000;">눈똑 들이기</a>
                     </div>
-                {% endfor %}
+                
                 </div>
+                {% endfor %}
               </div>
+              
             </div>
             </section>
 
             <section class="gallery">
 
             <div id="divSelectors">
-                <select>
-                    <option value="none">지역별 카테고리 선택</option>
-                    <option value="1">서울/경기/인천</option>
-                    <option value="2">강원</option>
-                    <option value="3">대전</option>
-                    <option value="4">세종/충남/충북</option>
-                    <option value="5">부산/울산</option>
-                    <option value="6">강남/경북</option>
-                    <option value="7">광주/전남/전북</option>
-                    <option value="8">제주</option>
-                </select>
+                
 
                 <form id="categoryForm" method="get" action="{% url 'noonddockApp:post_list_view' %}">
                     <select name="order" onchange="submitForm()">
@@ -127,6 +121,7 @@
                         <option value="4">스포츠/레저</option>
                         <option value="5">전시/행사</option>
                     </select>
+                    <img src="{% static 'img/Vector 64.png' %}">
                 </form>
                 
                 <script>
