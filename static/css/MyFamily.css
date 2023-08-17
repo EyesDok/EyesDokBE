@@ -286,6 +286,7 @@ line-height: normal;
     align-items: center; 
     margin-right:2vh;
     gap:1vh;
+    color:black;
 }
 .make img{
     width: 19.999px;
