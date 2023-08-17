@@ -76,16 +76,20 @@
                 <form action="{% url 'noonddockApp:comment_create' post.id %}" id="signup-form" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                 <div id="comment-write">
+                    <div class="profile">
                     <img id="cuser1" src="{% static 'img/user2.png' %}">
                     <p>{{user.username}}</p>
-                    <input type="text" name="content" id="content" placeholder="해당 게시물에 대한 여러분의 생각을 적어주세요."></input>
+                </div>
+                    <textarea name="content" id="content" placeholder="해당 게시물에 대한 여러분의 생각을 적어주세요."></textarea>
                     <button type="submit"id="cbtn1">등록</button>
                 </div>
 
                 {% for comment in comments %}
                 <div id="comment-write1">
-                    <img id="cuser1" src="{% static 'img/user2.png' %}">
+                    <div class="profile">
+                    <img id="cuser2" src="{% static 'img/user2.png' %}">
                     <span>{{ comment.writer.username }}</span>
+                    </div>
                     <div id="text-container">
                         <div id="ctext2">
                             {{ comment.content }}
