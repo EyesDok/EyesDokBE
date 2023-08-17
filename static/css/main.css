@@ -306,7 +306,7 @@ display:block;
 
 .imgContainer {
   width: 18vw;  
-  height: 35vh; 
+  height: 50vh; 
   overflow: hidden;  
   display: flex; 
   align-items: center; 

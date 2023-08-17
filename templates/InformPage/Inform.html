@@ -73,48 +73,15 @@
 </section>
         <section class="chat">
                 <div id="comment">실시간 눈똑 근황</div>
-        
+                <form action="" id="signup-form" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
                 <div id="comment-write">
                     <img id="cuser1" src="{% static 'img/user2.png' %}">
-                    <span>{{user.username}}</span>
-                    <textarea placeholder="해당 게시물에 대한 00님의 생각을 적어주세요."></textarea>
-                    <div id="cbtn1">등록</div>
+                    <p>{{user.username}}</p>
+                    <input type="text" id="content" placeholder="해당 게시물에 대한 여러분의 생각을 적어주세요."></input>
+                    <button type="submit"id="cbtn1">등록</button>
                 </div>
-                <script>
-                    document.addEventListener("DOMContentLoaded", () => {
-                        const commentBtn = document.getElementById("cbtn1");
-                        const commentTextarea = document.getElementById("comment-textarea");
-                    
-                        commentBtn.addEventListener("click", () => {
-                            const content = commentTextarea.value;
-                    
-                            if (content.trim() === "") {
-                                alert("댓글 내용을 입력하세요.");
-                                return;
-                            }
-                    
-                            // AJAX 요청을 보내고 서버에서 댓글을 추가하도록 처리
-                            // 아래 코드에서 url을 실제 댓글 추가 URL로 변경해야 합니다.
-                            fetch("/your-comment-add-url/", {
-                                method: "POST",
-                                headers: {
-                                    "X-CSRFToken": "{{ csrf_token }}",
-                                    "Content-Type": "application/json",
-                                },
-                                body: JSON.stringify({ content: content }),
-                            })
-                            .then(response => response.json())
-                            .then(data => {
-                                // 처리 완료 후, 페이지 리로드 또는 동적으로 댓글 표시 처리
-                                location.reload(); // 이 부분을 원하는 처리 방식으로 변경할 수 있습니다.
-                            })
-                            .catch(error => {
-                                console.error("Error:", error);
-                            });
-                        });
-                    });
-                    </script>
-                
+
                 {% for comment in comments %}
                 <div id="comment-write1">
                     <img id="cuser1" src="{% static 'img/user2.png' %}">
@@ -141,10 +108,5 @@
                         </script>
                     </a>
                 </div>
-               
-        
-            
-
-
         </section>
 {% endblock %}

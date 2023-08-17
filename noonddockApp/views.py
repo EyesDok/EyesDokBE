@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from noonddockApp.models import Post, Like
+from noonddockApp.models import Post, Like, Comment
 from django.http import JsonResponse
 
 # Create your views here.
@@ -184,3 +184,22 @@ def update_like_count(request):
             return JsonResponse({'success': False, 'error': 'Post not found'})
     
     return JsonResponse({'success': False, 'error': 'Invalid request'})
+
+def comment_create(request):
+    # POST 요청 시
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
+        # 시니어/자녀 정보 받아오기
+        membership = request.POST.get('membership')
+
+        # DB에 유저 추가
+        comment = Comment.objects.create(username=username, email=email, password=password1, membership=membership)
+        comment.save()
+
+        # 회원가입 성공 시 로그인 페이지로 이동
+        return redirect('accounts:login')
+    # GET 요청 시
+    return render(request, 'accounts/signup.html')
