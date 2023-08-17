@@ -8,7 +8,15 @@
         <link href="https://fonts.googleapis.com/css?family=Kyobo+Handwriting 2022&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/post_list.css' %}">
         <script type="text/javascript" src="{% static 'js/my_script.js' %}"></script>
-        
+        <style>
+            .pnc{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* 한 줄에 4개의 열을 생성 */
+        grid-gap: 10px;
+        /* 열과 행 사이의 간격을 조정하고자 하는 경우 여기에 작성 */
+    }
+        </style>
 {% endblock %}
 {% block content %}
         
@@ -55,11 +63,13 @@
             <div class="galleryTitle">{{ post.title }} 등산/낚시 눈똑들여보세요</div>
         </div>
 
-            <div class="center-section">               
-                    {% for post in post_list %}
+            <div class="center-section">
 
+                <div class="pnc">
+                {% for post in post_list %}
+               
+                
                     <div class="picAndNameContainer">
-                       
                         <a href="{% url 'noonddockApp:inform' post_id=post.id %}">
                             <div class="picAndName">
                                 <div class="imgContainer">
@@ -90,7 +100,7 @@
                                             }
                                         }
                                     </script>   
-                                </div>
+                              
                             </div>
                             <p class="spot">{{ post.title }}</p>
                             <div class="buttons">
@@ -99,11 +109,13 @@
                             </div>
                         </a>
                     </div>
-
                     
                 </div>
                 {% endfor %}
+              </div>
            
+    
 
     </section>
 {% endblock %}
+이거맞아?
