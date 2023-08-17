@@ -73,12 +73,12 @@
 </section>
         <section class="chat">
                 <div id="comment">실시간 눈똑 근황</div>
-                <form action="" id="signup-form" method="POST" enctype="multipart/form-data">
+                <form action="{% url 'noonddockApp:comment_create' post.id %}" id="signup-form" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                 <div id="comment-write">
                     <img id="cuser1" src="{% static 'img/user2.png' %}">
                     <p>{{user.username}}</p>
-                    <input type="text" id="content" placeholder="해당 게시물에 대한 여러분의 생각을 적어주세요."></input>
+                    <input type="text" name="content" id="content" placeholder="해당 게시물에 대한 여러분의 생각을 적어주세요."></input>
                     <button type="submit"id="cbtn1">등록</button>
                 </div>
 

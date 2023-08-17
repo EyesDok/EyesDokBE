@@ -185,20 +185,27 @@ def update_like_count(request):
     
     return JsonResponse({'success': False, 'error': 'Invalid request'})
 
-def comment_create(request):
+@login_required
+def comment_create(request, post_id):
     # POST 요청 시
     if request.method == 'POST':
-        email = request.POST.get('email')
-        password1 = request.POST.get('password1')
-        password2 = request.POST.get('password2')
-        # 시니어/자녀 정보 받아오기
-        membership = request.POST.get('membership')
+        content = request.POST.get('content')  # 폼에서 'content' 필드로 전달한 것으로 가정합니다.
+        post = Post.objects.get(id=post_id)  # post_id에 해당하는 Post 객체 가져오기
+        writer = request.user  # 현재 로그인한 사용자
 
-        # DB에 유저 추가
-        comment = Comment.objects.create(username=username, email=email, password=password1, membership=membership)
-        comment.save()
+        # DB에 댓글 추가
+        comment = Comment.objects.create(content=content, post=post, writer=writer)
+        
+        # 댓글 작성 후, 필요한 작업 수행 (예: 포스트에 댓글 개수 업데이트 등)
 
-        # 회원가입 성공 시 로그인 페이지로 이동
-        return redirect('accounts:login')
+        # 상세 페이지를 다시 렌더링하여 댓글이 반영되도록 처리
+        post = Post.objects.get(id=post_id)  # 댓글을 작성한 게시물을 다시 가져옵니다.
+        comments = Comment.objects.filter(post=post)  # 해당 게시물의 댓글들을 가져옵니다.
+        context = {
+            'post': post,
+            'comments': comments,
+        }
+        return render(request, 'InformPage/Inform.html', context)  # 템플릿 이름에 맞게 수정하세요
+
     # GET 요청 시
-    return render(request, 'accounts/signup.html')
+    return render(request, 'InformPage/Inform.html')  # 이 부분은 실제 템플릿 이름에 맞게 수정하세요
