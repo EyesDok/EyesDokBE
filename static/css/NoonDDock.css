@@ -244,6 +244,7 @@ line-height: normal;
   font-weight: 600;
   margin-top: 10vh;
   color: #000;
+  margin-bottom:3vh;
 }
 
 .title {
@@ -255,7 +256,7 @@ line-height: normal;
 }
 
 .gallery{
-  width: 80vw;
+  width: 84vw;
   margin: 3vh auto 0px;
   text-align: center;
   overflow: hidden;
@@ -312,6 +313,7 @@ line-height: normal;
 
 .center-section{
   width:80vw;
+  margin-left:2vh;
 }
 
 .picAndNameContainer {
@@ -461,8 +463,28 @@ flex-shrink: 0;
     -moz-appearance: none;
     appearance: none;
     cursor: pointer;
-    background: url(Vector\ 64.png) calc(95% - 5px) no-repeat;
+    
 }
+
+/* CSS */
+.select-container {
+  background: url({% static 'img/Vector 64.png' %}) no-repeat scroll right center transparent;
+  display: inline-block;
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
+
+.styled-select {
+  border: none;
+  outline: none;
+  appearance: none;  /* 이 부분은 select의 기본 스타일을 제거합니다 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  width: 150px;  /* 필요한 크기로 조절하세요 */
+  cursor: pointer;
+}
+
 
 
   

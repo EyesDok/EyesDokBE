@@ -112,8 +112,9 @@
             <div id="divSelectors">
                 
 
+                
                 <form id="categoryForm" method="get" action="{% url 'noonddockApp:post_list_view' %}">
-                    <select name="order" onchange="submitForm()">
+                    <select name="order" onchange="submitForm()" class="styled-select">
                         <option value="none">분야별 카테고리 선택</option>
                         <option value="1">등산/낚시</option>
                         <option value="2">공연/콘서트</option>
@@ -123,7 +124,7 @@
                     </select>
                     <img src="{% static 'img/Vector 64.png' %}">
                 </form>
-                
+            
                 <script>
                     function submitForm() {
                         document.getElementById('categoryForm').submit();
