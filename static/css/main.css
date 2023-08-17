@@ -183,7 +183,7 @@ line-height: normal;
 
   .logo1 {
     position: absolute;
-    top: 38%;
+    top: 16vw;
     left: 10vw;
     transform: translateY(-50%);
     text-align: center;
@@ -198,7 +198,7 @@ line-height: normal;
   
   .logo2 {
     position: absolute;
-    top: 40%;
+    top: 18vw;
     left: 10vw;
     transform: translateY(-50%);
     text-align: center;
