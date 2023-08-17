@@ -27,8 +27,8 @@
 <div class="center-section">
   <div class="picAndNameContainer">
     {% for post in post_list %}
-      {% if post.category == 0 or post.category == 1 %}
-      <a href="{% url 'noonddockApp:inform' post_id=post.id %}">
+      {% if forloop.counter <= 4 and post.category == 0 or post.category == 1 %}
+    <a href="{% url 'noonddockApp:inform' post_id=post.id %}">
       <div class="picAndName">
         <div class="imgContainer">
           {% if post.image %}
@@ -40,7 +40,7 @@
         <p class="musical">{{ post.title }}</p>
       </div>
     </a>
-    {% endif %}
+      {% endif %}
     {% endfor %}
     </div>
   </div>
@@ -59,7 +59,7 @@
         <div class="center-section">
           <div class="picAndNameContainer">
             {% for post in post_list %}
-              {% if post.category == 2 or post.category == 3 %}
+              {% if forloop.counter <= 4 and post.category == 2 or post.category == 3 %}
               <a href="{% url 'noonddockApp:inform' post_id=post.id %}">
               <div class="picAndName">
                 <div class="imgContainer">
@@ -72,7 +72,7 @@
                 <p class="name">{{ post.title }}</p>
               </div>
             </a>
-            {% endif %}
+              {% endif %}
             {% endfor %}
             </div>
           </div>
