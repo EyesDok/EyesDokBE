@@ -340,8 +340,12 @@ line-height: normal;
 }
 
 
-.center-section{
-width:80vw;
+.center-section {
+  width: 80vw;
+  display: flex;
+  flex-wrap: wrap; /* 이 부분을 추가하여 가로줄에 3개씩 묶어줍니다. */
+  justify-content: space-between;
+  gap: 3vw; /* 이미지 간 간격 설정 */
 }
 
 .picAndNameContainer {
@@ -359,6 +363,11 @@ width: 20vw; /* 고정 너비 설정 */
 display: flex;
 flex-direction: column;
 align-items: flex-start;
+}
+
+.picAndNameGroup {
+  width: calc(33.33% - 1vw); /* 가로 너비를 33.33%로 설정하고 간격을 고려하여 1vw를 빼줍니다. */
+  margin-bottom: 3vh; /* 이미지 묶음 간 간격 설정 */
 }
 
 
