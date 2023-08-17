@@ -90,24 +90,41 @@
                     <option value="7">광주/전남/전북</option>
                     <option value="8">제주</option>
                 </select>
-                <select>
-                    <option value="none">분야별 카테고리 선택</option>
-                    <option value="1">등산/낚시</option>
-                    <option value="2">공연/콘서트</option>
-                    <option value="3">연극/뮤지컬</option>
-                    <option value="4">스포츠/레저</option>
-                    <option value="5">전시/행사</option>
-                </select>
-                <select>
-                    <option value="none">정렬</option>
-                    <option value="1">최신순</option>
-                    <option value="2">인기순</option>
-                </select>
+
+                <form id="categoryForm" method="get" action="{% url 'noonddockApp:post_list_view' %}">
+                    <select name="order" onchange="submitForm()">
+                        <option value="none">분야별 카테고리 선택</option>
+                        <option value="1">등산/낚시</option>
+                        <option value="2">공연/콘서트</option>
+                        <option value="3">연극/뮤지컬</option>
+                        <option value="4">스포츠/레저</option>
+                        <option value="5">전시/행사</option>
+                    </select>
+                </form>
+                
+                <script>
+                    function submitForm() {
+                        document.getElementById('categoryForm').submit();
+                    }
+                </script>
+                <form id="sortForm" method="get" action="{% url 'noonddockApp:post_list_view' %}">
+                    <select name="order" onchange="submitForm()">
+                        <option value="none">정렬</option>
+                        <option value="recent">최신순</option>
+                        <option value="popular">인기순</option>
+                    </select>
+                </form>
+                <script>
+                    function submitForm() {
+                        document.getElementById('sortForm').submit();
+                    }
+                </script>
+                
             </div>
 
             <div class="titlebutton">
                 {% if request.user.is_authenticated %}
-                    <div class="galleryTitle">똑똑, {{ user.username }}님을 위한 맞춤 눈똑이 왔습니다 ></div>
+                    <div class="galleryTitle">똑똑, {{ user.username }}님의 눈똑이 왔습니다 ></div>
                 {% endif %}
             </div>
     

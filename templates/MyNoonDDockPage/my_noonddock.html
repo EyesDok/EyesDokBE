@@ -22,43 +22,47 @@
 
             <div class="center-section">
             <div class="picAndNameContainer">
+              {% for post in liked_posts %}
+              <a href="{% url 'noonddockApp:inform' post_id=post.id %}"></a>
                 <div class="picAndName">
                   <div class="imgContainer">
-                    <img src="{% static 'img/image1.png' %}" alt="">
-                    <button class="noon-button" onclick="toggleHeart(this)">
-                        <span class="noon-number">151</span>
-                        <img src="{% static 'img/group 166.png' %}" class="noon-image">
+                    {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="">
+                    {% else %}
+                    <img src="http://via.placeholder.com/300x300">
+                    {% endif %}
+                    <button class="noon-button {% if post.is_recommended %}active{% endif %}" onclick="toggleHeart(this, {{ post.id }})">
+                      <span class="noon-number">{{ post.like_count }}</span>
+                      <img src="{% static 'img/group 166.png' %}" class="noon-image">
                     </button>
+                    <script>
+                        function toggleHeart(button, postId) {
+                            fetch("{% url 'noonddockApp:my_noonddock' %}", {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'X-CSRFToken': '{{ csrf_token }}'
+                                },
+                                body: JSON.stringify({ post_id: postId })
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.is_liked) {
+                                    button.classList.add('active');
+                                    button.querySelector('.noon-number').textContent = data.like_count;
+                                } else {
+                                    button.classList.remove('active');
+                                    button.querySelector('.noon-number').textContent = data.like_count;
+                                }
+                            });
+                        }
+                    </script>
                 </div>
-                  <p class="spot">강릉</p>
+                  <p class="spot">{{ post.title }}</p>
                   <div class="buttons">
-                    <a href="/InformPage/Inform.html" class="detail-button" style="color: #000;">상세 눈똑보기</a>
+                    <a href="{% url 'noonddockApp:inform' post_id=post.id %}" class="detail-button" style="color: #000;">상세 눈똑보기</a>
                 </div>
-                </div>
-                <div class="picAndName">
-                  <div class="imgContainer">
-                    <img src="{% static 'img/image2.png' %}" alt="">
-                    <button class="noon-button" onclick="toggleHeart(this)">
-                        <span class="noon-number">151</span>
-                        <img src="{% static 'img/group 166.png' %}" class="noon-image">
-                    </button></div>
-                  <p class="spot">휴양지 느낌의 감성 분위기 캠핑 스팟</p>
-                  <div class="buttons">
-                    <a href="/InformPage/Inform.html" class="detail-button" style="color: #000;">상세 눈똑보기</a>
-                </div>
-                </div>
-                <div class="picAndName">
-                    <div class="imgContainer">
-                        <img src="{% static 'img/image3.png' %}" alt="">
-                        <button class="noon-button" onclick="toggleHeart(this)">
-                            <span class="noon-number">151</span>
-                            <img src="{% static 'img/group 166.png' %}" class="noon-image">
-                        </button></div>
-                    <p class="spot">휴양지 느낌의 감성 분위기 캠핑 스팟</p>
-                    <div class="buttons">
-                        <a href="/InformPage/Inform.html" class="detail-button" style="color: #000;">상세 눈똑보기</a>
-                    </div>
-                </div>
+              {% endfor %}  
               </div>
             </div>
 {% endblock %}    

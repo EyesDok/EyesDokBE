@@ -7,7 +7,7 @@ class ImageInline(admin.TabularInline):  # TabularInline 또는 StackedInline �
 
 # Register your models here.
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'image')
+    list_display = ('title', 'image', 'pub_date','like_count')
     list_filter = ['pub_date']
     inlines = [ImageInline]
 

@@ -11,6 +11,8 @@ class Post(models.Model):
     like_count  =   models.PositiveIntegerField("LIKE_COUNT", default=0) #좋아요 수
     category    =   models.IntegerField(verbose_name='테마',blank=True, null=True)
     #카테고리 (0:뮤지컬, 1:연극, 2:등산, 3:낚시)
+    city_cate   =   models.IntegerField(verbose_name='지역',blank=True, null=True)
+    #(1:서울/경기/인천,2:강원/강릉/원주,3:세종/충남/충북/대전, 4:부산/울산/경남/경북, 5:광주/전남/전북, 6:제주)
     location    =   models.TextField("LOCATION", max_length=300, default="위치") # 위치
     parking     =   models.TextField("PARKING", max_length=300, default="주차")  # 주차
     summary     =   models.TextField("SUMMARY", max_length=300, default="한줄 눈똑") # 한줄 눈똑

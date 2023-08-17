@@ -8,16 +8,60 @@ from django.http import JsonResponse
 #눈똑 게시글 리스트
 def post_list_view(request):
 
-    #추천수 기준 내림차순 정렬 상위 4개 게시물
-    post_list = Post.objects.all().order_by('-like')[:12]
+    #추천수 기준 내림차순 정렬 상위 12개 게시물
+    post_list = Post.objects.all().order_by('-like_count')[:12]
     
     #게시글 작성일 기준 내림차순 정렬 (선택)'최신순'
     if request.GET.get('order') == 'recent':        
         post_list = Post.objects.all().order_by('-pub_date') 
 
-    #게스글 추천수 기준 내림차순 정렬 (선택) '인기순'
+    #게시글 추천수 기준 내림차순 정렬 (선택) '인기순'
     elif request.GET.get('order') == 'popular':
         post_list = Post.objects.all().order_by('-like_count')
+
+    #게시글 등산/낚시 기준 내림차순 정렬 (선택) '등산/낚시'
+    elif request.GET.get('order') == '1':
+        post_list = Post.objects.all().order_by('-category')
+
+    #게시글 공연/콘서트 기준 내림차순 정렬 (선택) '공연/콘서트'
+    elif request.GET.get('order') == '2':
+        post_list = Post.objects.all().order_by('-category')
+
+    #게시글 연극/뮤지컬 기준 내림차순 정렬 (선택) '연극/뮤지컬'
+    elif request.GET.get('order') == '3':
+        post_list = Post.objects.all().order_by('-category')
+
+    #게시글 스포츠/레저 기준 내림차순 정렬 (선택) '스포츠/레저'
+    elif request.GET.get('order') == '4':
+        post_list = Post.objects.all().order_by('-category')
+
+    #게시글 전시/행사 기준 내림차순 정렬 (선택) '전시/행사'
+    elif request.GET.get('order') == '5':
+        post_list = Post.objects.all().order_by('-category')
+
+    #게시글 서울/경기/인천 기준 내림차순 정렬 (선택) '서울/경기/인천'
+    elif request.GET.get('order') == '1':
+        post_list = Post.objects.all().order_by('-city_cate')
+
+    #게시글 강원/강릉/원주 기준 내림차순 정렬 (선택) '강원/강릉/원주'
+    elif request.GET.get('order') == '2':
+        post_list = Post.objects.all().order_by('-city_cate')
+
+    #게시글 세종/충남/충북/대전 기준 내림차순 정렬 (선택) '세종/충남/충북/대전'
+    elif request.GET.get('order') == '3':
+        post_list = Post.objects.all().order_by('-city_cate')
+
+    #게시글 부산/울산/경남/경북 기준 내림차순 정렬 (선택) '부산/울산/경남/경북'
+    elif request.GET.get('order') == '4':
+        post_list = Post.objects.all().order_by('-city_cate')
+
+    #게시글 광주/전남/전북 기준 내림차순 정렬 (선택) '광주/전남/전북'
+    elif request.GET.get('order') == '5':
+        post_list = Post.objects.all().order_by('-city_cate')
+
+    #게시글 제주 기준 내림차순 정렬 (선택) '제주'
+    elif request.GET.get('order') == '6':
+        post_list = Post.objects.all().order_by('-city_cate')
         
     else:
         post_list = Post.objects.all()
@@ -107,16 +151,13 @@ def noonddock(request):
 
 #나의 눈똑 페이지
 def my_noonddock(request):
-    post_title_list = Post.objects.all().order_by('-like_count')[:6]
-    post_list = Post.objects.all().order_by('-like_count')[:6]
+    if not request.user.is_authenticated:
+        return render(request, 'accounts/login.html')  # 로그인 페이지로 이동 또는 처리
 
-    if request.user.is_authenticated:
-        for post in post_list:
-            post.is_liked = post.like_set.filter(user=request.user).exists()
+    liked_posts = Post.objects.filter(like_users=request.user)
 
     context = {
-        'post_list': post_list,
-        'post_title_list' : post_title_list,
+        'liked_posts': liked_posts,
     }
 
     return render(request, 'MyNoonDDockPage/my_noonddock.html', context)

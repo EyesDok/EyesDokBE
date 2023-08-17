@@ -18,30 +18,45 @@
     <section class="gallery">
 
         <div id="divSelectors">
-            <select>
-                <option value="none">지역별 카테고리 선택</option>
-                <option value="1">서울/경기/인천</option>
-                <option value="2">강원</option>
-                <option value="3">대전</option>
-                <option value="4">세종/충남/충북</option>
-                <option value="5">부산/울산</option>
-                <option value="6">강남/경북</option>
-                <option value="7">광주/전남/전북</option>
-                <option value="8">제주</option>
-            </select>
-            <select>
-                <option value="none">분야별 카테고리 선택</option>
-                <option value="1">등산/낚시</option>
-                <option value="2">공연/콘서트</option>
-                <option value="3">연극/뮤지컬</option>
-                <option value="4">스포츠/레저</option>
-                <option value="5">전시/행사</option>
-            </select>
-            <select>
-                <option value="none">정렬</option>
-                <option value="1">최신순</option>
-                <option value="2">인기순</option>
-            </select>
+            
+                <select name="order">
+                    <option value="none">지역별 카테고리 선택</option>
+                    <option value="1">서울/경기/인천</option>
+                    <option value="2">강원/강릉/원주</option>
+                    <option value="3">세종/충남/충북/대전</option>
+                    <option value="4">부산/울산/경남/경북</option>
+                    <option value="5">광주/전남/전북</option>
+                    <option value="6">제주</option>
+                </select>
+
+            <form id="categoryForm" method="get" action="{% url 'noonddockApp:post_list_view' %}">
+                <select name="order" onchange="submitForm()">
+                    <option value="none">분야별 카테고리 선택</option>
+                    <option value="1">등산/낚시</option>
+                    <option value="2">공연/콘서트</option>
+                    <option value="3">연극/뮤지컬</option>
+                    <option value="4">스포츠/레저</option>
+                    <option value="5">전시/행사</option>
+                </select>
+            </form>
+            
+            <script>
+                function submitForm() {
+                    document.getElementById('categoryForm').submit();
+                }
+            </script>
+            <form id="sortForm" method="get" action="{% url 'noonddockApp:post_list_view' %}">
+                <select name="order" onchange="submitForm()">
+                    <option value="none">정렬</option>
+                    <option value="recent">최신순</option>
+                    <option value="popular">인기순</option>
+                </select>
+            </form>
+            <script>
+                function submitForm() {
+                    document.getElementById('sortForm').submit();
+                }
+            </script>
         </div>
 
         <div class="titlebutton">
