@@ -5,6 +5,8 @@ from django.http import JsonResponse
 
 # Create your views here.
 
+
+
 #눈똑 게시글 리스트
 def post_list_view(request):
 
@@ -167,8 +169,6 @@ def my_noonddock(request):
 
     return render(request, 'MyNoonDDockPage/my_noonddock.html', context)
 
-
-from django.http import JsonResponse
 
 def update_like_count(request):
     if request.method == 'GET':
