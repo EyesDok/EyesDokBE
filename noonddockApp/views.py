@@ -114,9 +114,13 @@ def toggle_like(request, post_id):
 #눈똑 상세 페이지
 def post_inform(request, post_id):
     post = get_object_or_404(Post, id=post_id)
+    comments = Comment.objects.filter(post=post)
+
     
     context = {
         'post': post,
+        'comments': comments,
+
     }
     
     return render(request, 'InformPage/Inform.html', context)
