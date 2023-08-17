@@ -8,6 +8,7 @@
         <link href="https://fonts.googleapis.com/css?family=Kyobo+Handwriting 2022&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/post_list.css' %}">
         <script type="text/javascript" src="{% static 'js/my_script.js' %}"></script>
+        
 {% endblock %}
 {% block content %}
         
@@ -19,15 +20,6 @@
 
         <div id="divSelectors">
             
-                <select name="order">
-                    <option value="none">지역별 카테고리 선택</option>
-                    <option value="1">서울/경기/인천</option>
-                    <option value="2">강원/강릉/원주</option>
-                    <option value="3">세종/충남/충북/대전</option>
-                    <option value="4">부산/울산/경남/경북</option>
-                    <option value="5">광주/전남/전북</option>
-                    <option value="6">제주</option>
-                </select>
 
             <form id="categoryForm" method="get" action="{% url 'noonddockApp:post_list_view' %}">
                 <select name="order" onchange="submitForm()">
@@ -64,10 +56,11 @@
         </div>
 
             <div class="center-section">
-                {% for post in post_list %}
                
-                <div class="pnc">
+                    {% for post in post_list %}
+                
                     <div class="picAndNameContainer">
+                       
                         <a href="{% url 'noonddockApp:inform' post_id=post.id %}">
                             <div class="picAndName">
                                 <div class="imgContainer">
@@ -107,14 +100,11 @@
                             </div>
                         </a>
                     </div>
-                    {% endfor %}
+                    
                 </div>
-              </div>
+                {% endfor %}
            
     
 
     </section>
 {% endblock %}
-
-
-        
