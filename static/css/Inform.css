@@ -538,7 +538,6 @@ height: 72px;
     border: none;
     text-align: center;
     cursor: pointer;
-    display: flex;
     justify-content: center;
     align-items: center;
     color: #FEE;
@@ -546,7 +545,24 @@ font-family: SUIT;
 font-size: 1.8vw;
 font-style: normal;
 font-weight: 500;
-line-height: normal;
+line-height: 2;
+}
+
+.custom-button2 {
+  width:24vw;
+  height: 8vh;
+  background: #00A507;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  color: #FEE;
+font-family: SUIT;
+font-size: 1.8vw;
+font-style: normal;
+font-weight: 500;
+line-height: 2.5;
 }
 
 

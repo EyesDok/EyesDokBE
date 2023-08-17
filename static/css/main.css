@@ -299,6 +299,20 @@ section{
 display:block;
 }
 
+.imgContainer {
+  width: 14vw;  
+  height: 35vh; 
+  overflow: hidden;  
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+}
+.imgContainer img {
+  object-fit: cover; 
+    width: 100%;
+    height: 100%;
+}
+
 .titlebutton {
 display: flex;
 flex-direction: column;
