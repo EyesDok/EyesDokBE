@@ -151,13 +151,15 @@ def noonddock(request):
 
 #나의 눈똑 페이지
 def my_noonddock(request):
-    if not request.user.is_authenticated:
-        return render(request, 'accounts/login.html')  # 로그인 페이지로 이동 또는 처리
-
-    liked_posts = Post.objects.filter(like_users=request.user)
+    try:
+        post = get_object_or_404(Post, id=post_id, like_users=user_id)
+        user_likes = post.like_users.all()
+    except Post.DoesNotExist:
+        user_likes = []
 
     context = {
-        'liked_posts': liked_posts,
+        'user_likes': user_likes,
     }
+
 
     return render(request, 'MyNoonDDockPage/my_noonddock.html', context)
