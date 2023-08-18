@@ -143,6 +143,7 @@ def main(request):
 #눈똑 페이지
 def noonddock(request):
     post_list = Post.objects.all().order_by('-pub_date')[:3]
+    liked_posts = Post.objects.filter(like_users=request.user)
 
     if request.user.is_authenticated:
         user_liked = Like.objects.filter(user=request.user)
@@ -151,6 +152,7 @@ def noonddock(request):
 
     context = {
         'post_list' : post_list,
+        'liked_posts' : liked_posts,
     }
     return render(request, 'NoonDDockPage/NoonDDock.html', context)
 
@@ -167,6 +169,7 @@ def my_noonddock(request):
 
 
     return render(request, 'MyNoonDDockPage/my_noonddock.html', context)
+    
 
 
 def update_like_count(request):
