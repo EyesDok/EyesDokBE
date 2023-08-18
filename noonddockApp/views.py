@@ -75,7 +75,7 @@ def post_list_view(request):
             'post_list': post_list,
         }
     
-    return render(request, 'NoonDDocklistPage/post_list.html', context)
+    return render(request, 'NoonDDockListPage/post_list.html', context)
 
 
 #좋아요 기능=눈똑수
