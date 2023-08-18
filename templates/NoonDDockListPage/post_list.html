@@ -9,13 +9,11 @@
         <link rel="stylesheet" href="{% static 'css/post_list.css' %}">
         <script type="text/javascript" src="{% static 'js/my_script.js' %}"></script>
         <style>
-            .pnc{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        /* 한 줄에 4개의 열을 생성 */
-        grid-gap: 10px;
-        /* 열과 행 사이의 간격을 조정하고자 하는 경우 여기에 작성 */
-    }
+            .pnc {
+    display: grid;
+    grid-template-columns: 1fr;  /* 한 줄에 하나의 프레임만 생성 */
+    grid-gap: 10px; 
+}
         </style>
 {% endblock %}
 {% block content %}
@@ -63,16 +61,16 @@
             <div class="galleryTitle">{{ post.title }} 등산/낚시 눈똑들여보세요</div>
         </div>
 
-            <div class="center-section">
-
-                <div class="pnc">
+        <div class="center-section">
+            <div class="pnc">
                 {% for post in post_list %}
-               
-                
-            <div class="picAndNameContainer">
-                <a href="{% url 'noonddockApp:inform' post_id=post.id %}">
+                    {% if forloop.counter0|divisibleby:3 %}
+                        <!-- 각 세 번째 요소마다 새로운 컨테이너 시작 -->
+                        <div class="picAndNameContainer">
+                    {% endif %}
                     <div class="picAndName">
-                        <div class="imgContainer">
+                        <a href="{% url 'noonddockApp:inform' post_id=post.id %}">
+                            <div class="imgContainer">
                             {% if post.image %}
                             <img src="{{ post.image.url }}" alt="">
                             {% else %}
@@ -102,20 +100,22 @@
                             </script>   
                               
                     </div>
-                    <p class="spot">{{ post.title }}</p>
-                    <div class="buttons">
-                        <a href="{% url 'noonddockApp:inform' post_id=post.id %}" class="detail-button" style="color: #000;">상세 눈똑보기</a>
-                        <a href="{% url 'noonddockApp:post_list_view'  %}" class="add-button" style="color: #000;">목록 전체보기</a>
+                    <div class="descriptionContainer">
+                        <p class="spot">{{ post.title }}</p>
+                        <div class="buttons">
+                            <a href="{% url 'noonddockApp:inform' post_id=post.id %}" class="detail-button" style="color: #000;">상세 눈똑보기</a>
+                            <a href="{% url 'noonddockApp:post_list_view'  %}" class="add-button" style="color: #000;">목록 전체보기</a>
+                        </div>
                     </div>
                 </a>
             </div>
-                    
-        </div>
+
+            {% if forloop.last or forloop.counter|divisibleby:3 %}
+                <!-- 마지막 요소이거나 세 번째 요소마다 컨테이너 끝 -->
+                </div>
+            {% endif %}
         {% endfor %}
     </div>
-           
-    
-
-    </section>
-    {% endblock %}
-이거맞아?
+</div>
+</section>
+{% endblock %}
