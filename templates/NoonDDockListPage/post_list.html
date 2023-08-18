@@ -69,7 +69,6 @@
                         <div class="picAndNameContainer">
                     {% endif %}
                     <div class="picAndName">
-                        <a href="{% url 'noonddockApp:inform' post_id=post.id %}">
                             <div class="imgContainer">
                             {% if post.image %}
                             <img src="{{ post.image.url }}" alt="">
@@ -107,7 +106,6 @@
                             <a href="{% url 'noonddockApp:post_list_view'  %}" class="add-button" style="color: #000;">목록 전체보기</a>
                         </div>
                     </div>
-                </a>
             </div>
 
             {% if forloop.last or forloop.counter|divisibleby:3 %}
