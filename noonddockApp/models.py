@@ -3,7 +3,7 @@ from accounts.models import CustomUser
 
 class Post(models.Model):
     content     =   models.TextField("CONTENT", max_length=300, default="포스트 내용") #포스트 내용
-    title       =   models.CharField("TITLE", max_length=20, default="포스트 제목") #포스트 제목
+    title       =   models.CharField("TITLE", max_length=50, default="포스트 제목") #포스트 제목
     pub_date    =   models.DateField("PUB_DATE", auto_now_add=True) #작성일자
     image       =   models.ImageField("IMAGE", upload_to="postImage/", default="static/img/defaultImg.png") #포스트 사진
     user        =   models.ForeignKey(CustomUser, on_delete=models.CASCADE) #UserFK
