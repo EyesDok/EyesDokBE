@@ -8,6 +8,7 @@ from django.http import JsonResponse
 
 
 #눈똑 게시글 리스트
+@login_required
 def post_list_view(request):
 
     #추천수 기준 내림차순 정렬 상위 12개 게시물
@@ -114,6 +115,7 @@ def toggle_like(request, post_id):
     return JsonResponse({'liked': liked, 'like_count': like_count})
 
 #눈똑 상세 페이지
+@login_required
 def post_inform(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     comments = Comment.objects.filter(post=post)
@@ -141,6 +143,7 @@ def main(request):
     return render(request, 'MainPage/main.html', context)
 
 #눈똑 페이지
+@login_required
 def noonddock(request):
     post_list = Post.objects.all().order_by('-pub_date')[:3]
     liked_posts = Post.objects.filter(like_users=request.user)
@@ -157,6 +160,7 @@ def noonddock(request):
     return render(request, 'NoonDDockPage/NoonDDock.html', context)
 
 #나의 눈똑 페이지
+@login_required
 def my_noonddock(request):
     if not request.user.is_authenticated:
         return render(request, 'accounts/login.html')  # 로그인 페이지로 이동 또는 처리
@@ -171,7 +175,7 @@ def my_noonddock(request):
     return render(request, 'MyNoonDDockPage/my_noonddock.html', context)
     
 
-
+@login_required
 def update_like_count(request):
     if request.method == 'GET':
         post_id = request.GET.get('post_id')
